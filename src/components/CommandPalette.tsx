@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import {gameCatalog} from '../data/gameCatalog';
+import type {GameKind} from '../data/gameCatalog';
 import { projects } from '../data/projects';
 import { useApp } from '../utils/context';
 import { routeHref } from '../utils/route';
@@ -15,7 +17,8 @@ export default function CommandPalette() {
   const input = useRef<HTMLInputElement>(null);
   const currentPath = route.page === 'home' ? '' : route.page + (route.id ? '/' + route.id : '');
   const commands = useMemo(()=>[
-    ...[{path:'',title:c.home},{path:'work',title:c.work},{path:'about',title:lang==='fr'?'Parcours & ce qui m’anime':'Background & what moves me'},{path:'recruiter',title:c.recruiter},{path:'contact',title:c.contact}].map(p=>({id:'page-'+p.path,title:p.title,detail:lang==='fr'?'Page':'Page',href:routeHref(lang,p.path),action:undefined as undefined | (()=>void)})),
+    ...[{path:'',title:c.home},{path:'work',title:c.work},{path:'about',title:lang==='fr'?'Parcours & ce qui m’anime':'Background & what moves me'},{path:'games',title:lang==='fr'?'Jeux':'Games'},{path:'recruiter',title:c.recruiter},{path:'contact',title:c.contact}].map(p=>({id:'page-'+p.path,title:p.title,detail:lang==='fr'?'Page':'Page',href:routeHref(lang,p.path),action:undefined as undefined | (()=>void)})),
+    ...(Object.keys(gameCatalog) as GameKind[]).map(id=>({id:'game-'+id,title:gameCatalog[id].series+' / '+gameCatalog[id].title[lang],detail:lang==='fr'?'Mini-jeu':'Mini-game',href:routeHref(lang,'games/'+id),action:undefined as undefined | (()=>void)})),
     ...projects.map(p=>({id:p.id,title:p.title,detail:p.tech.slice(0,3).join(' / '),search:p.summary[lang]+' '+p.tagline[lang]+' '+p.category.join(' '),href:routeHref(lang,'work/'+p.id),action:undefined as undefined | (()=>void)})),
     {id:'language',title:lang==='fr'?'Passer en anglais':'Switch to French',detail:'FR / EN',href:routeHref(lang==='fr'?'en':'fr',currentPath),action:undefined as undefined | (()=>void)},
     {id:'studio',title:lang==='fr'?'Ouvrir le Studio':'Open the Studio',detail:lang==='fr'?'Projets / Message / Feuille de route':'Projects / Message / Roadmap',href:'',action:requestStudio},

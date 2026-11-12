@@ -5,6 +5,7 @@ import { useApp } from '../utils/context';
 import { routeHref } from '../utils/route';
 import { Link } from './UI';
 import CommandPalette from './CommandPalette';
+import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Header() {
   const { c, lang, route, reduced } = useApp();
@@ -19,7 +20,7 @@ export default function Header() {
   const menuClosing = useRef(false);
   const items = [
     { path: '', label: c.home }, { path: 'work', label: c.work },
-    { path: 'about', label: c.about }, { path: 'contact', label: c.contact },
+    { path: 'about', label: c.about }, { path: 'games', label: lang==='fr'?'Jeux':'Games' }, { path: 'contact', label: c.contact },
   ];
   const active = Math.max(0, items.findIndex(item => item.path === (route.page === 'home' ? '' : route.page)));
   const path = route.page === 'home' ? '' : route.page + (route.id ? '/' + route.id : '');
@@ -88,6 +89,7 @@ export default function Header() {
   };
 
   return <header className={`navigation${scrolled ? ' is-scrolled' : ''}${route.page === 'recruiter' ? ' navigation-paper' : ''}`}>
+    <ThemeSwitcher/>
     <a className="skip-link" href="#main" onClick={e => { e.preventDefault(); document.getElementById('main')?.focus(); }}>{c.skip}</a>
     <div className="nav-container">
       <Link className="brand-name"><span>{identity.name}</span></Link>

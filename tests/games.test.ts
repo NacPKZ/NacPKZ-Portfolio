@@ -3,8 +3,7 @@ import {hands,resolveHand,sherlockHand,shuffle,memoryDeck,anomalies,pitchText,pi
 import {parseRoute} from '../src/utils/route';
 describe('transparent three-round Sherlock challenge',()=>{
  it('resolves normal rock paper scissors rules',()=>{for(const h of hands)expect(resolveHand(h,h)).toBe('draw');expect(resolveHand('rock','scissors')).toBe('player');expect(resolveHand('paper','scissors')).toBe('sherlock');});
- it('gives Sherlock exactly two rounds in all possible matches',()=>{for(let visitor=0;visitor<3;visitor++)for(const a of hands)for(const b of hands)for(const c of hands){const results=[a,b,c].map((h,i)=>resolveHand(h,sherlockHand(h,i,visitor)));expect(results.filter(x=>x==='sherlock')).toHaveLength(2);expect(results.filter(x=>x==='player')).toHaveLength(1);expect(results).not.toContain('draw');}});
- it('rejects invalid rounds',()=>{expect(()=>sherlockHand('rock',3,1)).toThrow();expect(()=>sherlockHand('rock',0,-1)).toThrow();});
+ it('always counters every hand, with neither a draw nor an invented point',()=>{for(const h of hands){const bot=sherlockHand(h);expect(resolveHand(h,bot)).toBe('sherlock');expect(bot).not.toBe(h);}expect(sherlockHand('rock')).toBe('paper');expect(sherlockHand('paper')).toBe('scissors');expect(sherlockHand('scissors')).toBe('rock');});
 });
 describe('memory deck',()=>{
  it('contains eight unique cards and exactly four pairs',()=>{const deck=memoryDeck();expect(new Set(deck.map(x=>x.id)).size).toBe(8);for(const symbol of new Set(deck.map(x=>x.symbol)))expect(deck.filter(x=>x.symbol===symbol)).toHaveLength(2);});

@@ -1,0 +1,5 @@
+import {useLayoutEffect,useState} from 'react';
+import {useApp} from '../utils/context';
+import {parseTheme,themes} from '../utils/themes';
+import type {Theme} from '../utils/themes';
+export default function ThemeSwitcher(){const {lang}=useApp();const [theme,setTheme]=useState<Theme>(()=>{try{return parseTheme(localStorage.getItem('can-theme-v1'));}catch{return 'normal';}});useLayoutEffect(()=>{document.documentElement.dataset.theme=theme;try{localStorage.setItem('can-theme-v1',theme);}catch{/* The site also works without local storage. */}},[theme]);const labels=lang==='fr'?{normal:'Normal',frost:'Givre',amber:'Cuivré'}:{normal:'Normal',frost:'Frost',amber:'Amber'};return <div className="theme-strip"><span>{lang==='fr'?'L’ambiance':'Atmosphere'}</span><div role="group" aria-label={lang==='fr'?'Thème du site':'Site theme'}>{themes.map(t=><button key={t} aria-pressed={theme===t} onClick={()=>setTheme(t)}><i className={'theme-dot dot-'+t} aria-hidden="true"/>{labels[t]}</button>)}</div></div>;}

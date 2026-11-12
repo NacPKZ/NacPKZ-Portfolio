@@ -53,6 +53,8 @@ La palette et la recherche de projets réutilisent `matchesSearch`. Les mots son
 
 Le Studio propose Tous les projets, En construction et M’écrire. Univers et le laboratoire sont supprimés. Les dix cartes ont un visuel local fourni par `ProjectVisual.tsx`.
 
-Voir [REFONTE_V3.md](REFONTE_V3.md) pour les quatre jeux, les personnages SVG et les animations. Les règles sont dans `src/utils/games.ts`, les composants dans `src/components/games/`. Les délais sont nettoyés quand on ferme un jeu ou quitte une page.
+Voir [REFONTE_V4.md](REFONTE_V4.md) pour les huit jeux, les personnages SVG et les animations. Les règles sont dans `src/utils/games.ts`, les composants dans `src/components/games/`. Les délais sont nettoyés quand on ferme un jeu ou quitte une page.
 
 Le contact prépare des brouillons via `src/utils/contact.ts`. Le visiteur confirme l’envoi dans son application mail, Gmail ou Outlook. Aucun serveur d’envoi ni clé email n’est dans le dépôt public.
+
+Les titres et descriptions des jeux sont centralisés dans `src/data/gameCatalog.ts`. Les nouvelles règles sont dans `src/utils/arcade.ts`. Les trois thèmes sont définis dans `src/utils/themes.ts`, avec leurs couleurs et effets dans `src/styles/arcade.css`. Le sélecteur `ThemeSwitcher.tsx` conserve le choix localement.

@@ -1,6 +1,6 @@
 # Can Pekgoz | Data, Intelligence & Business Strategy
 
-Portfolio indépendant, bilingue FR/EN, développé avec React 19, TypeScript, Vite et GSAP. Projets documentés, études de cas, quatre mini-jeux intégrés et présentation personnelle.
+Portfolio indépendant, bilingue FR/EN, développé avec React 19, TypeScript, Vite et GSAP. Projets documentés, études de cas, huit mini-jeux, trois ambiances visuelles et présentation personnelle.
 
 ## État de publication
 
@@ -27,13 +27,13 @@ npm run build
 - Recherche de projets insensible aux accents, combinable avec les catégories.
 - Index et galerie visuelle, avec préférence conservée localement.
 - Transitions de pages natives avec repli GSAP ; chapitres contextuels des études de cas.
-- Galerie de captures authentiques, mini-jeux de Sherlock, Tony Soprano, Daenerys et Don Draper et mode recruteur avec CV.
+- Galerie de captures authentiques, rubrique Jeux avec huit personnages de séries et mode recruteur avec CV.
 - Rubrique « Ce qui m’anime » : films, séries, animés, documentaires, lecture, curiosité, ateliers, culture kurde et solidarité.
 - Studio à trois volets : Tous les projets, En construction et M’écrire.
 - Objectifs à venir : Projet Excel en construction et préparation PL-300, sans prétendre à leur réalisation.
 - Animations dynamiques automatiques, préférence système de mouvement réduit respectée, retour en haut accessible au clavier.
 
-Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en/work`, `#/fr/work/consultai`, `#/fr/about`, `#/fr/recruiter`, `#/fr/contact`. La langue conserve la page courante. Le CV et les captures authentiques restent en français.
+Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en/work`, `#/fr/work/consultai`, `#/fr/about`, `#/fr/games`, `#/fr/recruiter`, `#/fr/contact`. La langue conserve la page courante. Le CV et les captures authentiques restent en français.
 
 ## Structure
 
@@ -41,6 +41,8 @@ Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en
 |---|---|
 | `src/data/projects.ts` | Neuf projets, résultats, sources, limites et captures |
 | `src/data/interests.ts` | Présentation personnelle FR/EN, déclarative |
+| `src/data/gameCatalog.ts` | Catalogue bilingue des huit jeux |
+| `src/utils/themes.ts` | Normal, Givre, Cuivré |
 | `src/data/profile.ts` | Expériences professionnelles |
 | `src/components/CommandPalette.tsx` | Navigation et recherche au clavier |
 | `src/components/PersonalInterlude.tsx` | Présentation personnelle interactive |
@@ -87,4 +89,4 @@ Voir [le guide simple, sans terminal](docs/MODIFIER_MON_PORTFOLIO.md). Pour chan
 
 ## Refonte
 
-Voir `docs/REFONTE_V3.md` pour la version actuelle : dix projets illustrés, quatre mini-jeux répartis dans les pages, un contact qui prépare un véritable email. Univers, le laboratoire et leurs anciens GIF sont supprimés.
+Voir `docs/REFONTE_V4.md` pour la version actuelle : dix projets illustrés, huit mini-jeux réunis dans Jeux, trois thèmes discrets et un contact qui prépare un véritable email. Univers, le laboratoire et leurs anciens GIF sont supprimés.

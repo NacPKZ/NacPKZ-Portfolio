@@ -91,7 +91,9 @@ Tu peux aussi me demander : « Remplace mon CV par ce PDF » ou « Mets à jour 
 
 ## Identité et mini-jeux
 
-`src/data/identity.ts` centralise le nom public. Les invitations sont dans `src/components/GameSpot.tsx`, les quatre jeux dans `src/components/games/`, les règles et données dans `src/utils/games.ts` et leurs animations dans `src/styles/play.css`.
+`src/data/identity.ts` centralise le nom public. Les invitations et noms des huit jeux sont dans `src/data/gameCatalog.ts`, les jeux dans `src/components/games/`, les règles dans `src/utils/games.ts` et `src/utils/arcade.ts`. Les animations sont dans `src/styles/play.css` et `src/styles/arcade.css`.
+
+Les trois ambiances Normal, Givre et Cuivré se modifient dans `src/utils/themes.ts` pour les noms, et `src/styles/arcade.css` pour les couleurs. Elles ne changent ni le CV ni les informations du portfolio.
 
 Les projets documentés sont dans `src/data/projects.ts`. Le projet Excel en construction est dans `src/data/newProjects.ts`. Les photographies sont dans `public/assets/editorial/`, avec leurs crédits dans `public/assets/media-manifest.json`.
 

@@ -1,4 +1,6 @@
-# Quatre mini-jeux, portfolio professionnel
+# Historique V3 : quatre mini-jeux
+
+Cette version est archivée. Voir [REFONTE_V4.md](REFONTE_V4.md) pour le comportement actuel, notamment Sherlock qui contre maintenant chaque geste.
 
 Univers et Laboratoire sont supprimés, avec les palettes de séries, les scènes, les GIF et les trois anciennes démonstrations dépendantes du laboratoire. Le catalogue conserve neuf projets documentés et le projet Excel en construction. Toutes les cartes ont une image.
 

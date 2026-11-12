@@ -4,7 +4,7 @@ export const hands:Hand[]=['rock','paper','scissors'];
 export const handLabels={fr:{rock:'Pierre',paper:'Feuille',scissors:'Ciseaux'},en:{rock:'Rock',paper:'Paper',scissors:'Scissors'}};
 const beats:Record<Hand,Hand>={rock:'scissors',paper:'rock',scissors:'paper'};
 export function resolveHand(player:Hand,opponent:Hand){return player===opponent?'draw':beats[player]===opponent?'player':'sherlock';}
-export function sherlockHand(player:Hand,round:number,visitorRound:number):Hand{if(!Number.isInteger(round)||round<0||round>2||!Number.isInteger(visitorRound)||visitorRound<0||visitorRound>2)throw new Error('Invalid match round');return round===visitorRound?beats[player]:hands.find(h=>beats[h]===player)!;}
+export function sherlockHand(player:Hand):Hand{return hands.find(h=>beats[h]===player)!;}
 export function shuffle<T>(items:readonly T[],random:()=>number=Math.random):T[]{const result=[...items];for(let i=result.length-1;i>0;i--){const n=random();if(!Number.isFinite(n)||n<0||n>=1)throw new Error('Random value must be in [0,1)');const j=Math.floor(n*(i+1));[result[i],result[j]]=[result[j],result[i]];}return result;}
 export const memoryDeck=()=>shuffle(['crown','wolf','dragon','sun'].flatMap(symbol=>[0,1].map(copy=>({id:symbol+'-'+copy,symbol}))));
 export const anomalies=[

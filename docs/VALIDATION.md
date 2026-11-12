@@ -175,3 +175,21 @@ TypeScript, ESLint et 47 tests automatiques réussis. Le chifoumi a terminé à 
 À 320 px : Parcours et Contact affichent une largeur utile et une largeur de défilement identiques à 305 px. Aucun débordement horizontal, zéro violation axe détectée (respectivement 24 et 28 contrôles réussis). Le contrôle a révélé puis permis de corriger le nom trop large dans Parcours et un contraste transitoire du bouton final de Contact. Ces audits ne remplacent pas un test sur téléphone physique.
 
 Contrôle complémentaire à 320 px sur l’accueil avec Sherlock ouvert : largeur 305 px, défilement 305 px, zéro violation axe détectée, 24 contrôles réussis. Le bouton de retour en haut conserve un contraste lisible dès son apparition.
+
+## V4 : huit jeux, thèmes et index corrigé
+
+12 novembre 2026. La V4 remplace le scénario Sherlock historique : il contre désormais chaque geste et gagne réellement 3 à 0. Les constats des sections précédentes décrivent les versions de leur date, pas le comportement actuel.
+
+- 58 tests Vitest : les 27 chemins possibles du visiteur dans le jeu de Gus aboutissent à sa victoire ; tous les gestes de Sherlock sont contrés ; indices de code avec doublons ; ordre des signaux ; trajectoire et score de précision ; huit personnages et trois thèmes.
+- Chromium : Sherlock, trois gestes différents, historique Pierre/Feuille, Feuille/Ciseaux, Ciseaux/Pierre et score final 0 à 3.
+- Gus : partie complète avec mise CDI, retraits complémentaires 1/3, 2/2, 3/1 et victoire au dernier jeton. Lien de contact présent.
+- Logan : échec au septième essai, révélation, nouvelle partie et victoire en quatre essais à partir des seuls indices visibles.
+- Walter : séquence lumineuse affichée, saisie activée après observation, mauvaise réponse signalée et possibilité de revoir la séquence. La victoire complète des quatre manches n’a pas été jouée dans Chromium ; la comparaison des séquences est couverte par les tests unitaires.
+- Tyrion : trois scores enregistrés, meilleur score 46/100, revanche remet le compteur à l’essai 1/3.
+- Catalogue : huit liens directs et titres d’onglets propres aux jeux. Le choix amène à la partie.
+- Thèmes : Normal, Givre et Cuivré manipulés ; choix retrouvé après rechargement.
+- Index : aucune intersection entre titres et badges sur dix lignes à largeur desktop et 768 px. Les images occupent désormais la colonne qui leur était réservée.
+- À 320 px extérieurs (305 utiles), Jeux/Gus : largeur et défilement 305 px, zéro violation axe, 25 contrôles réussis dans chacun des trois thèmes après correction du rôle accessible du plateau de jetons.
+- À 320 px, Projets/Index : largeur et défilement 305 px, zéro violation axe, 24 contrôles réussis. Même audit à 768 px : zéro violation, 24 contrôles réussis, aucun débordement horizontal.
+
+Les audits portent sur des cadres Chromium et ne constituent ni un test sur téléphone physique, ni une garantie d’absence de tout bug. Aucun score Lighthouse ni test Safari/Firefox réel n’est revendiqué.
