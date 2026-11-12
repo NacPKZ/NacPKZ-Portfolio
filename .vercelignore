@@ -1,0 +1,10 @@
+.git
+.openai
+.sites-local
+node_modules
+dist
+coverage
+artifacts
+qa-*.html
+.env*
+!.env.example

@@ -1,0 +1,382 @@
+@font-face{font-family:AtlasDisplay;src:url('/assets/fonts/DisplayGrotesk.woff') format('woff');font-style:normal;font-weight:400 800;font-display:swap}
+@font-face{font-family:AtlasGrotesk;src:url('/assets/fonts/BodyGrotesk.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:AtlasGrotesk;src:url('/assets/fonts/BodyGroteskBold.woff') format('woff');font-style:normal;font-weight:600 800;font-display:swap}
+:root{--serif:AtlasDisplay,'Arial Narrow',Arial,sans-serif;--sans:AtlasGrotesk,Arial,sans-serif;font-family:var(--sans)}
+body,button,input{font-family:var(--sans)}
+em{font-style:normal}
+html{scroll-padding-top:126px}
+.display{font-size:clamp(84px,10vw,170px);line-height:.96;letter-spacing:-.035em}
+.section-title{font-size:clamp(54px,5.4vw,88px);line-height:1.02;letter-spacing:-.025em}
+.eyebrow,.micro{font-size:12px;letter-spacing:.045em}
+.eyebrow{margin-bottom:30px}
+.button{font-size:16px;min-height:60px;padding:19px 26px;gap:36px;overflow:hidden}
+.button:active{transform:scale(.98)}
+.button-sage:hover{background:#e8f6b3}
+.text-link{font-size:17px;gap:22px;position:relative}
+.external-link{position:relative}
+.external-link:not(.button):after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;transform:scaleX(0);transform-origin:right;background:currentColor;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.external-link:not(.button):hover:after,.external-link:not(.button):focus-visible:after{transform:scaleX(1);transform-origin:left}
+.availability{font-size:14px}
+.source-note{font-size:14px}
+.caveat{font-size:16px}
+.page-intro{font-size:23px;max-width:760px;margin-left:30%}
+.page-title{padding-top:176px;padding-bottom:60px}
+.page-title,.case-hero,.recruiter-hero{animation:none}
+
+/* The name is the identity. No initials or decorative external-link symbols. */
+.navigation{position:fixed;inset:0 0 auto;z-index:80;color:var(--paper);background:#111b20e8;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:background .35s,box-shadow .35s}
+.nav-container{min-height:102px;padding:0 var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:28px;border-bottom:1px solid var(--line);max-width:1900px;margin:auto;transition:min-height .35s}
+.navigation.is-scrolled{box-shadow:0 8px 35px #00000014}
+.navigation.is-scrolled .nav-container{min-height:82px}
+.brand-name{font-family:var(--sans);font-weight:700;font-size:27px;letter-spacing:-.06em;white-space:nowrap;line-height:1.1;display:block;padding:14px 0}
+.nav-dock{position:relative;isolation:isolate;display:flex;align-items:center;gap:2px;padding:5px;border:1px solid var(--line);border-radius:40px;background:#ffffff03}
+.nav-dock a{padding:13px 18px;min-height:46px;display:grid;place-items:center;position:relative;font-size:16px;white-space:nowrap;transition:color .3s;z-index:1}
+.nav-dock a.is-active{color:var(--sage)}
+.nav-dock a:hover,.nav-dock a:focus-visible{color:#f4f4e8}
+.nav-active-pill{position:absolute;left:0;top:5px;bottom:5px;width:0;z-index:0;background:#d5e88a12;border-radius:30px;pointer-events:none}
+.nav-utilities{display:flex;gap:24px;align-items:center}
+.nav-utilities .language-button{font-size:12px;padding:14px 0}
+.recruiter-shortcut{font-size:13px;white-space:nowrap;padding:14px 0;border-bottom:1px solid #d5e88a70;transition:color .3s}
+.recruiter-shortcut:hover{color:var(--sage)}
+.nav-menu-toggle{display:none;align-items:center;gap:15px;padding:12px 0 12px 12px;font-size:16px;min-height:48px}
+.nav-menu-toggle i{width:25px;height:15px;position:relative;display:block}
+.nav-menu-toggle b{position:absolute;width:100%;height:1px;background:currentColor;left:0;top:3px;transition:transform .3s}
+.nav-menu-toggle b+b{top:12px;width:18px;left:7px}
+.nav-menu-toggle:hover b+b{transform:translateX(-7px);width:25px}
+.navigation-paper{background:#eeeadeec;color:var(--ink)}
+.navigation-paper .nav-container,.navigation-paper .nav-dock{border-color:#111b2028}
+.navigation-paper .nav-active-pill{background:#111b200c}
+.navigation-paper .nav-dock a.is-active,.navigation-paper .nav-dock a:hover{color:#354d32}
+.navigation-paper .recruiter-shortcut{border-color:#111b2050}
+
+/* A real modal menu: focus, Escape and native background blocking. */
+.navigation-overlay{position:fixed;inset:0;margin:0;padding:0;border:0;max-width:none;max-height:none;width:100%;height:100dvh;background:transparent;color:var(--ink);overflow:hidden}
+.navigation-overlay::backdrop{background:#09151ae8}
+.menu-surface{height:100%;background:var(--paper);padding:28px var(--gutter) 35px;display:flex;flex-direction:column;overflow:auto;overscroll-behavior:contain}
+.menu-top{display:flex;align-items:center;justify-content:space-between;gap:30px;padding-bottom:22px;border-bottom:1px solid #111b202b}
+.menu-top>span{font-size:27px;font-weight:700;letter-spacing:-.06em}
+.menu-top button{min-height:48px;padding:10px 0 10px 20px;display:flex;align-items:center;gap:20px;font-size:16px}
+.close-lines{position:relative;width:24px;height:24px;display:block}
+.close-lines:before,.close-lines:after{content:'';position:absolute;width:24px;height:1px;top:12px;left:0;background:currentColor;transform:rotate(45deg)}
+.close-lines:after{transform:rotate(-45deg)}
+.overlay-links{margin:auto 0;padding:35px 0;display:flex;flex-direction:column;gap:4px}
+.overlay-links>a{display:flex;align-items:center;gap:30px;padding:6px 0;min-height:66px}
+.menu-link-number{font:12px var(--mono);min-width:25px;color:#526155}
+.menu-link-mask{display:block;overflow:hidden}
+.menu-link-label{display:block;font:clamp(56px,7vh,100px)/1.05 var(--serif);text-transform:uppercase;letter-spacing:-.025em}
+.menu-link-rule{height:1px;background:#111b20;flex:1;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1);margin-left:20px}
+.overlay-links>a[aria-current=page] .menu-link-rule,.overlay-links>a:hover .menu-link-rule{transform:scaleX(1)}
+.overlay-links>a[aria-current=page] .menu-link-label{color:#41643a}
+.menu-bottom{border-top:1px solid #111b202b;padding-top:25px;display:flex;gap:30px;justify-content:space-between;flex-wrap:wrap;font-size:14px;line-height:1.5}
+.menu-bottom>a{border-bottom:1px solid #111b2055;padding-bottom:5px}
+.navigation-overlay :focus-visible{outline-color:#284fb0}
+body:has(.navigation-overlay[open]){overflow:hidden}
+
+/* Same-document transitions preserve a live navigation bar. */
+.navigation{view-transition-name:site-navigation}
+.site-footer{view-transition-name:site-footer}
+main{view-transition-name:page-content}
+::view-transition-group(site-navigation),::view-transition-group(site-footer){animation-duration:.55s}
+::view-transition-old(root),::view-transition-new(root){animation:none}
+::view-transition-old(page-content){animation:page-depart .48s cubic-bezier(.6,0,.35,1) both;mix-blend-mode:normal}
+::view-transition-new(page-content){animation:page-arrive .72s cubic-bezier(.16,1,.3,1) both;mix-blend-mode:normal}
+@keyframes page-depart{to{opacity:0;transform:translateY(-60px) scale(.985);filter:blur(3px)}}
+@keyframes page-arrive{from{opacity:0;transform:translateY(90px);clip-path:inset(15% 0 0 0)}to{opacity:1;transform:translateY(0);clip-path:inset(0)}}
+.route-curtain{position:fixed;inset:0;z-index:110;background:var(--sage);color:var(--ink);transform:translateY(100%);pointer-events:none;display:grid;place-items:center}
+.route-curtain span{font:clamp(60px,12vw,180px)/1 var(--serif);text-transform:uppercase;letter-spacing:-.04em}
+.pipeline-detail,.scenario-readout,.orbit-caption{animation:state-arrive .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes state-arrive{from{opacity:.5;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* A larger, tighter typographic opening. */
+.hero{padding-top:155px}
+.hero-topline .eyebrow{font-size:12px;line-height:1.7;max-width:none}
+.hero-edition{font-size:11px}
+.hero-composition{margin-top:30px;min-height:410px}
+.hero-title{font-size:clamp(100px,11vw,190px);line-height:.9;letter-spacing:-.035em;text-transform:uppercase;max-width:none;position:relative;z-index:2}
+.hero-line{padding-bottom:9px}
+.hero-line+.hero-line{margin-left:0}
+.hero-title em{font-style:normal}
+.hero-intro{max-width:445px}
+.hero-intro p{font-size:22px;line-height:1.45;max-width:430px}
+.hero-intro .button{min-width:270px}
+.hero-bottom{margin-top:30px;margin-bottom:45px;gap:80px}
+.hero-bio{max-width:350px}
+.hero-bio p{font-size:17px;line-height:1.55}
+.hero-bio .micro{font-size:12px}
+.hero-baseline{padding:27px 0}
+.signature{font:700 26px var(--sans);letter-spacing:-.06em}
+.hero-baseline>.micro{font-size:11px}
+.hero-baseline>a{font-size:13px}
+.decision-orbit{top:-35px;height:430px;right:-10px}
+.orbit-art{top:-55px;right:-30px;opacity:.62;transition:transform .8s cubic-bezier(.2,.7,.2,1);transform:translate3d(var(--orbit-x,0px),var(--orbit-y,0px),0) rotate(var(--orbit-turn,0deg))}
+.phase-0{--orbit-turn:-12deg}.phase-1{--orbit-turn:0deg}.phase-2{--orbit-turn:12deg}
+.orbit-caption{top:255px;max-width:265px;right:0;padding-left:20px;background:linear-gradient(90deg,#111b20b0,#111b20)}
+.orbit-caption p{font-size:30px;letter-spacing:-.01em;line-height:1.03;margin:12px 0}
+.orbit-caption .micro{font-size:11px}
+.orbit-caption small{font:11px/1.6 var(--sans);display:block;color:var(--muted)}
+.orbit-controls{bottom:-22px;gap:24px}
+.orbit-controls button{font-size:14px;gap:8px;padding:14px 0;min-height:48px}
+.orbit-controls button>span{font-size:10px}
+.orbit-coordinate{display:none}
+.intro-overlay{background:var(--ink);color:var(--paper)}
+.intro-name{font-family:var(--serif);font-size:clamp(70px,17vw,260px);letter-spacing:-.035em;line-height:1}
+.intro-overlay p{font-size:13px;color:var(--sage)}
+.intro-line{background:var(--sage)}
+.intro-overlay button{font-family:var(--sans);font-size:14px;border-bottom-color:#d5e88a60;padding-bottom:10px}
+
+/* Reading, project browsing and social links. */
+.feature-title-row p,.section-heading>p,.lab-teaser>div>p:not(.eyebrow){font-size:20px;line-height:1.55}
+.feature-title-row .section-title{font-size:clamp(54px,5.8vw,94px);line-height:1.02}
+.feature-header>.micro,.feature-stack,.stage-caption{font-size:12px}
+.feature-foot .text-link{font-size:16px}
+.selected-work .section-title{font-size:clamp(52px,5.2vw,84px)}
+.project-label h3{font-size:42px}
+.project-label p{font-size:17px}
+.art-label{font-size:11px}
+.nova-statement{font-size:66px;line-height:1}
+.nova-stat>span{font-size:11px;max-width:180px}
+.manifesto h2{font-size:clamp(66px,7vw,115px);line-height:1.05}
+.manifesto-copy{max-width:530px}
+.manifesto-copy p{font-size:21px}
+.lab-teaser .section-title{font-size:clamp(52px,5vw,82px)}
+.contact-section .display{font-size:clamp(70px,8.1vw,135px);line-height:1;letter-spacing:-.025em}
+.contact-grid>div>p{font-size:20px}
+.email-link{font-family:var(--sans);font-size:clamp(23px,2.4vw,39px);letter-spacing:-.055em;line-height:1.3;overflow-wrap:anywhere}
+.contact-social{gap:34px}
+.contact-social a,.contact-social button{font-size:16px;min-height:44px}
+.copy-feedback{font-size:14px!important}
+.footer-name{font:700 34px var(--sans);letter-spacing:-.06em}
+.footer-top>p{font-size:16px}
+.footer-top>div>a{font-size:15px;min-height:40px;align-items:center}
+.footer-bottom,.footer-bottom button{font-size:12px}
+.footer-bottom>a{min-height:40px;display:flex;align-items:center;justify-content:flex-end}
+.project-index-row h2{font-size:clamp(48px,5.4vw,86px)}
+.project-index-row p{font-size:19px}
+.project-index-row .micro,.index-tags span{font-size:12px}
+.filters button{font-size:15px;min-height:48px}
+.filter-count{font-size:12px}
+.case-headline h1{font-size:clamp(72px,10.2vw,164px);line-height:1;letter-spacing:-.035em}
+.case-tagline{font-size:clamp(29px,3.5vw,53px);line-height:1.1}
+.case-summary>p,.case-body>p,.case-reflection>div>p{font-size:20px}
+.case-body h2{font-size:clamp(39px,3.7vw,59px);line-height:1.15}
+.case-body h3{font-size:15px}
+.method-steps li>p{font-size:20px}
+.case-side .micro,.tech-tags>span{font-size:12px}
+.nature-banner>p{font-size:17px}
+.case-metrics dt{font-size:16px}
+.case-metrics dd{font-size:clamp(43px,4.6vw,74px)}
+.case-metrics dd.metric-note{font-size:14px}
+.pipeline-detail h3{font-size:39px;line-height:1.06}
+.pipeline-detail p{font-size:19px}
+.pipeline-detail .micro,.pipeline-detail>a{font-size:14px}
+.scenario-readout .micro{font-size:12px}
+.scenario-tabs button{font-size:14px}
+.scenario-sources>a{font-size:16px}
+.gallery-caption p{font-size:17px}
+.gallery-caption small{font-size:13px}
+.gallery-strip button{flex-basis:145px;min-height:85px}
+.gallery-strip button img{width:135px;height:77px}
+.gallery-strip button span{font-size:12px}
+.case-reflection blockquote{font-size:43px;line-height:1.2}
+.case-sources>a{font-size:17px}
+.education-row h2,.experience-row h3{font-size:38px;line-height:1.1}
+.education-row p,.experience-row p{font-size:19px}
+.experience-row .role{font-size:16px}
+.experience-date{font-size:13px}
+.skill-options>button{font-size:38px;line-height:1.1}
+.skill-evidence>a{font-size:30px}
+.skill-evidence small{font-size:12px}
+.about-monogram{font-size:initial;letter-spacing:normal;min-height:450px;align-items:flex-start;justify-content:flex-start;padding:35px}
+.about-monogram>strong{font:100px/.95 var(--serif);letter-spacing:-.04em}
+.about-monogram>span{font-size:13px;text-align:left;right:auto;left:35px;bottom:30px}
+.lab-module-title h2{font-size:52px;line-height:1.08}
+.lab-module-title>p{font-size:20px}
+.lab-tabs button{font-size:18px}
+.range-control label{font-size:17px}
+.range-control output{font-size:19px}
+.range-bounds{font-size:12px}
+.reset-button{font-size:16px}
+.lab-footnotes>p{font-size:16px}
+.calculator-result dl>div{font-size:15px}
+.calculator-result dd{font-size:17px}
+.recruiter-hero h1{font-size:105px;line-height:1;letter-spacing:-.04em}
+.recruiter-hero h2{font-size:23px}
+.recruiter-hero p{font-size:20px}
+.recruiter-summary h3,.recruiter-project h3,.recruiter-experiences h3{font-size:35px}
+.recruiter-summary p,.recruiter-summary ul,.recruiter-project p,.recruiter-experiences article p{font-size:18px}
+.recruiter-contact>a{font-size:17px}
+.recruiter-page h2:not(.recruiter-hero h2){font-size:43px}
+
+@media(max-width:1250px){.nav-container{gap:20px}.brand-name{font-size:25px}.nav-dock a{font-size:15px;padding-inline:13px}.nav-utilities{gap:20px}.recruiter-shortcut{display:none}.hero-title{font-size:11.6vw}.hero-composition{min-height:390px}.hero-topline .eyebrow{font-size:11px}.orbit-caption{max-width:240px}.orbit-controls{gap:18px}.orbit-caption p{font-size:28px}.hero-baseline>.micro{font-size:10px}.feature-stack{gap:15px}.nova-statement{font-size:57px}.nova-stat{top:220px}.case-reflection{gap:65px}}
+@media(max-width:1050px){.nav-dock{display:none}.nav-menu-toggle{display:flex}.nav-container{min-height:92px}.navigation.is-scrolled .nav-container{min-height:78px}.recruiter-shortcut{display:block;font-size:14px}.hero-composition{min-height:390px}.hero-title{font-size:11.8vw}.hero-topline .eyebrow{font-size:11px;max-width:500px}.hero-intro p{font-size:20px}.hero-bottom{margin-top:70px}.hero-bio p{font-size:16px}.orbit-caption{top:235px;width:220px}.orbit-controls{bottom:-65px}.decision-orbit{top:0;right:-10px;height:370px;width:400px}.orbit-art{width:420px}.hero-baseline>.micro{display:none}.page-intro{margin-left:20%;font-size:21px}.feature-title-row{gap:25px}.contact-grid{gap:40px}.email-link{font-size:27px}.contact-social{gap:25px}.selected-work .section-title{font-size:58px}.project-label p{font-size:16px}.project-label h3{font-size:36px}.art-label{font-size:10px}.nova-statement{font-size:51px}.nova-stat strong{font-size:36px}.nova-stat>span{font-size:10px;max-width:145px}.lab-teaser{grid-template-columns:1fr 1fr;gap:40px}.lab-teaser .section-title{font-size:53px}.case-side .micro{font-size:11px}.case-body h2{font-size:42px}.case-metrics{gap:30px}.case-metrics dt{font-size:14px}.case-metrics dd{font-size:53px}.case-headline h1{font-size:12vw}.pipeline-detail h3{font-size:35px}.pipeline-detail p{font-size:18px}.pipeline-detail>a{font-size:13px}.range-control label{font-size:16px}.range-control output{font-size:17px}.recruiter-hero h1{font-size:85px}.recruiter-summary{gap:50px}}
+@media(max-width:700px){
+  :root{--gutter:22px}
+  html{scroll-padding-top:105px}
+  .nav-container,.navigation.is-scrolled .nav-container{min-height:82px;padding:0 22px;gap:12px}
+  .brand-name{font-size:23px;letter-spacing:-.065em;max-width:150px;white-space:nowrap}
+  .nav-utilities{gap:16px}
+  .nav-utilities .language-button{font-size:11px;white-space:nowrap}
+  .nav-menu-toggle{font-size:15px;gap:10px;padding-left:5px}
+  .nav-menu-toggle i{width:21px}
+  .nav-menu-toggle b+b{width:15px;left:6px}
+  .recruiter-shortcut{display:none}
+  .menu-surface{padding:18px 22px 28px}
+  .menu-top{padding-bottom:12px}
+  .menu-top>span{font-size:23px}
+  .menu-top button{font-size:15px;gap:15px}
+  .overlay-links{padding:27px 0;gap:9px}
+  .overlay-links>a{gap:18px;min-height:58px}
+  .menu-link-number{font-size:11px;min-width:20px}
+  .menu-link-label{font-size:clamp(47px,12.5vw,72px);line-height:1.05;letter-spacing:-.025em}
+  .menu-link-rule{margin-left:0}
+  .menu-bottom{font-size:13px;gap:18px;padding-top:22px}
+  .menu-bottom>span{order:3;width:100%}
+  .display{font-size:clamp(64px,16vw,100px);line-height:1;letter-spacing:-.025em}
+  .section-title{font-size:clamp(45px,11.5vw,64px);line-height:1.05}
+  .micro,.eyebrow,.page-title .eyebrow{font-size:11px;line-height:1.7}
+  .button{min-height:59px;padding:18px 21px;font-size:16px;gap:24px}
+  .text-link,.section-heading .text-link{font-size:16px}
+  .availability{font-size:13px;line-height:1.5}
+  .source-note,.case-hero>.source-note{font-size:13px;line-height:1.6}
+  .caveat{font-size:14px}
+  .hero{padding-top:119px}
+  .hero-topline .eyebrow{font-size:10px;max-width:300px;line-height:1.7;margin-bottom:10px}
+  .hero-composition{margin-top:28px;min-height:360px}
+  .hero-title{font-size:clamp(60px,17.4vw,110px);line-height:.92;letter-spacing:-.028em}
+  .hero-line+.hero-line{margin-left:0}
+  .hero-line{padding-bottom:7px}
+  .hero-bottom{margin-top:72px;margin-bottom:30px;gap:31px}
+  .hero-intro p{font-size:20px;line-height:1.5;max-width:390px;margin-bottom:24px}
+  .hero-intro .button{min-width:260px}
+  .hero-bio .availability{font-size:13px}
+  .hero-bio p{font-size:15px;line-height:1.6}
+  .hero-bio .micro{font-size:11px}
+  .signature{font-size:23px}
+  .hero-baseline{padding:24px 0;gap:15px}
+  .hero-baseline>a{font-size:11px;gap:10px}
+  .decision-orbit{top:91px;right:-10px;width:270px;height:320px}
+  .orbit-art{width:300px;right:-38px;top:-8px;opacity:.55}
+  .orbit-caption{top:145px;right:10px;max-width:235px;width:235px;padding-left:17px}
+  .orbit-caption p{font-size:29px;line-height:1.05;margin:11px 0}
+  .orbit-caption .micro{font-size:10px}
+  .orbit-caption small{font-size:12px;line-height:1.5}
+  .orbit-controls{bottom:-5px;right:9px;gap:19px}
+  .orbit-controls button{font-size:13px;gap:6px;min-height:48px}
+  .orbit-controls button>span{font-size:10px}
+  .feature-title-row .section-title{font-size:52px;line-height:1.02}
+  .feature-title-row p,.section-heading>p{font-size:18px}
+  .feature-header>.micro{font-size:10px}
+  .feature-stack{font-size:10px;gap:16px}
+  .feature-foot .text-link{font-size:16px}
+  .stage-caption{font-size:8px}
+  .stage-header{font-size:8px}
+  .selected-work .section-title{font-size:49px}
+  .project-label h3{font-size:35px}
+  .project-label p{font-size:16px;line-height:1.5}
+  .art-label{font-size:10px}
+  .novatel-art{height:470px}
+  .nova-statement{font-size:58px;line-height:1.02}
+  .nova-stat{top:210px;right:25px}
+  .nova-stat>span{font-size:10px}
+  .manifesto h2{font-size:55px;line-height:1.06}
+  .manifesto-copy p{font-size:19px}
+  .manifesto .eyebrow{font-size:11px}
+  .lab-teaser{grid-template-columns:1fr;gap:35px}
+  .lab-teaser .section-title{font-size:50px}
+  .lab-teaser>div>p:not(.eyebrow){font-size:19px}
+  .contact-section .display{font-size:clamp(54px,14vw,78px);line-height:1.03;letter-spacing:-.02em}
+  .contact-grid>div>p{font-size:18px}
+  .contact-grid .availability{font-size:13px}
+  .email-link{font-size:clamp(23px,6.2vw,30px);letter-spacing:-.065em}
+  .contact-social{gap:24px;margin-top:18px}
+  .contact-social a,.contact-social button{font-size:15px;min-height:42px}
+  .copy-feedback{font-size:13px!important}
+  .footer-name{font-size:27px;letter-spacing:-.065em}
+  .footer-top{display:flex;align-items:flex-start;flex-wrap:wrap;gap:20px 30px}
+  .footer-top>p{width:100%;order:3;font-size:14px}
+  .footer-top>div{margin-left:auto;flex-direction:column;gap:3px;align-items:flex-end}
+  .footer-top>div>a{font-size:14px;min-height:33px}
+  .footer-bottom,.footer-bottom button{font-size:10px}
+  .page-title{padding-top:135px;padding-bottom:36px}
+  .page-intro{font-size:20px;margin-left:0;line-height:1.55}
+  .filters button{font-size:13px;min-height:45px}
+  .filter-count{font-size:11px}
+  .project-index-row h2{font-size:50px;line-height:1.02}
+  .project-index-row p{font-size:17px}
+  .project-index-row .micro{font-size:10px}
+  .project-index-row{grid-template-columns:22px minmax(0,1fr) 34px;gap:14px}
+  .project-index-row .round-arrow{width:34px;height:34px}
+  .case-hero{padding-top:118px}
+  .back-link{font-size:14px}
+  .case-headline h1{font-size:clamp(54px,14.2vw,88px);line-height:1.02;letter-spacing:-.025em}
+  .case-tagline{font-size:30px;line-height:1.1}
+  .case-summary>p{font-size:19px}
+  .case-actions .button,.case-actions .text-link{font-size:15px}
+  .nature-banner>p{font-size:16px}
+  .nature-banner>.micro{font-size:11px}
+  .case-metrics{gap:25px 15px}
+  .case-metrics dd{font-size:45px}
+  .case-metrics dt{font-size:14px;line-height:1.5}
+  .case-metrics dd.metric-note{font-size:13px}
+  .case-side>.micro,.tech-tags>span{font-size:11px}
+  .case-body h2{font-size:39px;line-height:1.15}
+  .case-body h3{font-size:13px}
+  .case-body>p,.method-steps li>p{font-size:18px;line-height:1.6}
+  .pipeline-detail{grid-template-columns:38px minmax(0,1fr);min-height:300px}
+  .pipeline-detail h3{font-size:32px}
+  .pipeline-detail p{font-size:17px}
+  .pipeline-detail .micro,.pipeline-detail>a{font-size:12px}
+  .scenario-explorer .section-title{font-size:44px}
+  .scenario-tabs button{font-size:12px}
+  .scenario-readout .micro{font-size:10px}
+  .scenario-revenue strong{font-size:37px}
+  .scenario-sources>a{font-size:14px}
+  .ml-metrics dd{font-size:37px}
+  .ml-metrics dt{font-size:11px}
+  .gallery-caption p{font-size:15px}
+  .gallery-caption small{font-size:12px}
+  .gallery-strip button{flex-basis:105px;min-height:65px}
+  .gallery-strip button img{width:95px;height:54px}
+  .gallery-strip button span{font-size:11px}
+  .case-reflection .section-title{font-size:41px}
+  .case-reflection>div>p{font-size:18px}
+  .case-reflection blockquote{font-size:36px;line-height:1.15}
+  .case-sources>a{font-size:15px}
+  .education-row h2,.experience-row h3{font-size:34px}
+  .education-row p,.experience-row p{font-size:18px}
+  .experience-date{font-size:12px}
+  .experience-row .role{font-size:15px}
+  .about-monogram{min-height:360px;padding:28px}
+  .about-monogram>strong{font-size:90px}
+  .about-monogram>span{font-size:12px;left:28px;bottom:25px}
+  .skill-options>button{font-size:33px}
+  .skill-evidence>a{font-size:29px}
+  .skill-evidence small{font-size:11px}
+  .lab-module-title h2{font-size:42px}
+  .lab-module-title>p{font-size:18px}
+  .lab-tabs button{font-size:17px;min-height:60px}
+  .range-control label{font-size:16px}
+  .range-control output{font-size:17px}
+  .range-bounds{font-size:11px}
+  .lab-footnotes>p{font-size:15px}
+  .calculator-result dl>div{font-size:14px}
+  .calculator-result dd{font-size:16px}
+  .recruiter-hero h1{font-size:75px;line-height:1}
+  .recruiter-hero h2{font-size:21px}
+  .recruiter-hero p{font-size:18px}
+  .recruiter-summary h3,.recruiter-project h3,.recruiter-experiences h3{font-size:32px}
+  .recruiter-summary p,.recruiter-summary ul,.recruiter-project p,.recruiter-experiences article p{font-size:17px}
+  .recruiter-contact>a{font-size:16px}
+  .recruiter-page h2:not(.recruiter-hero h2){font-size:37px}
+  .intro-name{font-size:16.2vw}
+  .intro-overlay p{font-size:10px}
+  .intro-overlay button{font-size:14px}
+  ::view-transition-old(page-content){animation-duration:.35s}
+  ::view-transition-new(page-content){animation-duration:.55s}
+}
+@media(max-width:370px){.nav-container,.navigation.is-scrolled .nav-container{padding-inline:20px;gap:10px}.brand-name{font-size:21px}.nav-utilities{gap:10px}.nav-menu-toggle{font-size:14px;gap:8px}.nav-utilities .language-button{font-size:10px}.nav-menu-toggle i{width:19px}.hero-title{font-size:16vw}.hero-intro .button{min-width:0;width:100%}.hero-baseline{flex-wrap:wrap;gap:15px}.hero-baseline>a{font-size:12px}.orbit-caption{max-width:220px;right:5px}.orbit-controls{right:5px;gap:14px}.orbit-controls button{font-size:12px}.email-link{font-size:23px}.hero-composition{min-height:345px}.project-index-row{grid-template-columns:18px minmax(0,1fr) 28px;gap:10px}.project-index-row h2{font-size:43px}.project-index-row .round-arrow{width:28px;height:28px}.case-number{display:none}.case-headline h1{font-size:14vw}.menu-link-label{font-size:47px}.menu-bottom{font-size:12px}.ml-metrics dd{font-size:32px}.case-metrics dd{font-size:40px}.hero-bio p{font-size:15px}.section-title{font-size:44px}.lab-teaser .section-title{font-size:45px}.feature-title-row .section-title{font-size:47px}.nova-statement{font-size:53px}.recruiter-hero h1{font-size:65px}}
+@media(prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}.route-curtain{display:none}}
+html[data-motion=reduced]::view-transition-group(*),html[data-motion=reduced]::view-transition-old(*),html[data-motion=reduced]::view-transition-new(*){animation:none!important}
+@media print{.navigation,.route-curtain{display:none!important}.recruiter-page{padding-top:0}.recruiter-hero h1{font-size:45px}.recruiter-hero p{font-size:12px}.recruiter-summary p,.recruiter-summary ul,.recruiter-project p,.recruiter-experiences article p{font-size:11px}.recruiter-summary h3,.recruiter-project h3,.recruiter-experiences h3{font-size:23px}.recruiter-contact>a{font-size:11px}}
+
+.case-metrics dd.metric-note{font-family:var(--sans)}

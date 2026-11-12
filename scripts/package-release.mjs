@@ -1,0 +1,12 @@
+import { mkdirSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { resolve } from 'node:path';
+const status=execFileSync('git',['status','--porcelain'],{encoding:'utf8'}).trim();
+if(status)throw new Error('Commit the reviewed source before generating its release archive.');
+const files=execFileSync('git',['ls-files'],{encoding:'utf8'}).split('\n').filter(Boolean);
+const forbidden=files.filter(file=>/(^|\/)(node_modules|\.git|\.openai|\.vercel|\.sites-local|dist|coverage)(?:\/|$)/.test(file)||/(^|\/)\.env(?!\.example$)/.test(file)||/^qa-.*\.html$/.test(file));
+if(forbidden.length)throw new Error('Local-only files are tracked: '+forbidden.join(', '));
+mkdirSync('release',{recursive:true});
+const target=resolve('release/NacPKZ-Portfolio-Source.zip');
+execFileSync('git',['archive','--format=zip','--prefix=NacPKZ-Portfolio/','--output='+target,'HEAD']);
+process.stdout.write(target+'\n');

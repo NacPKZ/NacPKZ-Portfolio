@@ -1,0 +1,6 @@
+import { l } from './types';
+export const experiences = [
+  { company: 'Effort Commerce', place: 'Gonesse', date: l('Fév. → juin 2025', 'Feb → Jun 2025'), role: l('Assistant comptable', 'Accounting assistant'), desc: l('Traitement et vérification de factures clients, contrôle des données et amélioration du processus de saisie.', 'Processing and checking customer invoices, validating data and improving the entry process.') },
+  { company: 'Matera', place: 'Paris', date: l('Sept. 2024 → janv. 2025', 'Sep 2024 → Jan 2025'), role: l('Stagiaire recouvrement', 'Collections intern'), desc: l('Suivi de dossiers, conciliation amiable et gestion opérationnelle du recouvrement. Une expérience au contact d’enjeux financiers concrets.', 'Case management, amicable conciliation and operational debt collection, working with concrete financial issues.') },
+  { company: 'Alkim Petrokimya', place: 'Istanbul', date: l('Juin → août 2021', 'Jun → Aug 2021'), role: l('Assistant exécutif', 'Executive assistant'), desc: l('Analyse réglementaire et coordination avec des partenaires internationaux dans un contexte industriel.', 'Regulatory research and coordination with international partners in an industrial context.') },
+];

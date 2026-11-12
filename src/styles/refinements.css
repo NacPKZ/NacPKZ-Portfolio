@@ -1,0 +1,13 @@
+.orbit-caption{top:260px}.orbit-controls{bottom:-16px}.lab-teaser>*{min-width:0}.lab-machine{min-width:0}
+@media(max-width:1200px){.orbit-caption{top:215px}.orbit-controls{bottom:-20px}}
+@media(max-width:950px){.orbit-caption{top:224px}.orbit-controls{bottom:-25px}}
+@media(max-width:700px){.orbit-caption{top:170px}.orbit-controls{bottom:-17px}.machine-formula{font-size:78px;gap:20px}.formula-line{width:50px}.lab-machine:hover .machine-formula{gap:24px}.hero-bottom{margin-top:65px}.lab-teaser .section-title{font-size:43px}}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.page-title,.case-hero,.recruiter-hero{animation:chapter-in .6s cubic-bezier(.2,.7,.2,1) both}@keyframes chapter-in{from{transform:translateY(14px);opacity:.7}to{transform:translateY(0);opacity:1}}
+
+body{min-width:0}
+
+.case-number{color:#647b6e}.pipeline-big{color:#8a9d80}.gallery-strip button{opacity:1}.gallery-strip button img{opacity:.65}.gallery-strip button.selected img{opacity:1}.case-metrics dd.metric-note{order:3;font:11px/1.6 AtlasSans,Arial,sans-serif;max-width:260px;color:var(--muted);letter-spacing:0}
+
+@media(max-width:700px){.footer-top{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}.footer-top>div{min-width:0;flex-wrap:wrap;gap:10px}.footer-top>p{min-width:0}.footer-name{font-size:clamp(24px,7.8vw,31px)}}

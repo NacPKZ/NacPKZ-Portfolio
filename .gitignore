@@ -1,0 +1,13 @@
+node_modules
+dist/
+*.tsbuildinfo
+coverage/
+.env*
+!.env.example
+.sites-local/
+artifacts/
+qa-responsive.html
+qa-tablet.html
+
+.vercel/
+release/
