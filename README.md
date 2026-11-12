@@ -83,10 +83,6 @@ ConsultAI utilise NexaRetail synthétique et un volet ML DataCo indépendant. Le
 
 Sources, licences, maintenance et limites des tests : [SOURCES](docs/SOURCES.md), [MAINTENANCE](docs/MAINTENANCE.md), [VALIDATION](docs/VALIDATION.md).
 
-## Modifier mon CV ou mes informations
-
-Voir [le guide simple, sans terminal](docs/MODIFIER_MON_PORTFOLIO.md). Pour changer seulement le CV, remplacer `public/assets/Can_Pekgoz_CV.pdf` en gardant ce nom.
-
 ## Refonte
 
 Voir `docs/REFONTE_V4.md` pour la version actuelle : dix projets illustrés, huit mini-jeux réunis dans Jeux, trois thèmes discrets et un contact qui prépare un véritable email. Univers, le laboratoire et leurs anciens GIF sont supprimés.
