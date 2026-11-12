@@ -58,7 +58,7 @@ La palette et la recherche de projets réutilisent `matchesSearch`. Les mots son
 
 `Studio.tsx` contient Tous les projets, En construction, M’écrire et Univers. `ProjectVisual.tsx` est partagé par l’index, l’accueil et le Studio. Il affiche une capture si elle existe, sinon `assets/editorial/<id>.webp`.
 
-`series.ts` définit les sept univers. `SeriesMoment.tsx` est utilisé dans les différentes pages. Les GIF se lancent automatiquement à l’affichage ; une affiche fixe est utilisée si le système demande de réduire le mouvement. Aucun choix de niveau d’animation n’est exposé dans l’interface.
+`series.ts` définit les sept univers. `SeriesMoment.tsx` utilise une affiche fixe par défaut. Le car wash active explicitement son GIF contextuel ; les autres animations de séries apparaissent dans une scène ouverte volontairement depuis le Studio. Les vignettes du Studio restent fixes. Une affiche remplace les GIF si le système demande de réduire le mouvement. Aucun choix de niveau d’animation n’est exposé dans l’interface.
 
 ## Contact
 

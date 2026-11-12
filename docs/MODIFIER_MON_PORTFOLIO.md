@@ -91,7 +91,7 @@ Tu peux aussi me demander : « Remplace mon CV par ce PDF » ou « Mets à jour 
 
 ## Identité, scènes et animations
 
-`src/data/identity.ts` centralise le nom public. `src/data/series.ts` contient les sept univers et leurs couleurs. `SeriesMoment.tsx` affiche les références au fil des pages. Les GIF et leurs affiches fixes sont dans `public/assets/series/`. Les photographies sont dans `public/assets/editorial/`, avec les crédits dans `public/assets/media-manifest.json`.
+`src/data/identity.ts` centralise le nom public. `src/data/series.ts` contient les sept univers et leurs couleurs. `SeriesMoment.tsx` affiche une référence fixe dans la partie personnelle et une animation contextuelle dans le simulateur. Les autres références se découvrent volontairement dans Univers. Les GIF et leurs affiches fixes sont dans `public/assets/series/`. Les photographies sont dans `public/assets/editorial/`, avec les crédits dans `public/assets/media-manifest.json`.
 
 Les nouvelles démonstrations sont décrites dans `src/data/newProjects.ts`. Leurs calculs et exercices sont dans `src/utils/lab.ts`. Les projets documentés restent dans `src/data/projects.ts`. Pour ajouter une carte sans capture, prévoir une photographie `public/assets/editorial/ID_DU_PROJET.webp` et vérifier les droits et crédits.
 

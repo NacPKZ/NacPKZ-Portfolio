@@ -87,6 +87,6 @@ Voir [le guide simple, sans terminal](docs/MODIFIER_MON_PORTFOLIO.md). Pour chan
 
 ## Refonte
 
-Voir `docs/REFONTE_V2.md` pour la version actuelle : 13 projets et démonstrations, 13 cartes illustrées, cinq GIF de séries répartis dans les pages, sept univers, un contact qui prépare un email et trois expériences métier.
+Voir `docs/REFONTE_V2.md` pour la version actuelle : 13 projets et démonstrations, 13 cartes illustrées, références de séries discrètes et découvertes à la demande, sept univers, un contact qui prépare un email et trois expériences métier.
 
 Pour comprendre la publication : [COMPRENDRE_VERCEL.md](docs/COMPRENDRE_VERCEL.md).
