@@ -1,12 +1,12 @@
 # Can Pekgoz | Data, Intelligence & Business Strategy
 
-Portfolio indépendant, bilingue FR/EN, développé avec React 19, TypeScript, Vite et GSAP. Projets documentés, études de cas, laboratoire de scénarios et présentation personnelle.
+Portfolio indépendant, bilingue FR/EN, développé avec React 19, TypeScript, Vite et GSAP. Projets documentés, études de cas, quatre mini-jeux intégrés et présentation personnelle.
 
 ## État de publication
 
 Dépôt public : https://github.com/NacPKZ/NacPKZ-Portfolio. Site public : https://nacpkz-portfolio.vercel.app/. Hébergement Vercel dans l’espace Nac (nac18), connecté au dépôt. Déploiement automatique après TypeScript, ESLint, les tests automatiques et le build. GitHub Pages conserve une copie de secours.
 
-Le projet est autonome : aucun compte ChatGPT, composant OpenAI, service d'IA ou serveur privé n'est nécessaire aux visiteurs. Tout le contenu et les calculs du Lab s'exécutent dans le navigateur.
+Le projet est autonome : aucun compte ChatGPT, composant OpenAI, service d'IA ou serveur privé n'est nécessaire aux visiteurs. Le contenu et les mini-jeux s’exécutent dans le navigateur.
 
 ## Développement
 
@@ -27,13 +27,13 @@ npm run build
 - Recherche de projets insensible aux accents, combinable avec les catégories.
 - Index et galerie visuelle, avec préférence conservée localement.
 - Transitions de pages natives avec repli GSAP ; chapitres contextuels des études de cas.
-- Galerie de captures authentiques, modules ROI/erreurs/qualité et mode recruteur avec CV.
+- Galerie de captures authentiques, mini-jeux de Sherlock, Tony Soprano, Daenerys et Don Draper et mode recruteur avec CV.
 - Rubrique « Ce qui m’anime » : films, séries, animés, documentaires, lecture, curiosité, ateliers, culture kurde et solidarité.
-- Studio à quatre volets : Tous les projets, En construction, M’écrire et Univers.
+- Studio à trois volets : Tous les projets, En construction et M’écrire.
 - Objectifs à venir : Projet Excel en construction et préparation PL-300, sans prétendre à leur réalisation.
-- Animations dynamiques automatiques, préférence système de mouvement réduit respectée, sept palettes de séries et retour en haut accessible au clavier.
+- Animations dynamiques automatiques, préférence système de mouvement réduit respectée, retour en haut accessible au clavier.
 
-Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en/work`, `#/fr/work/consultai`, `#/fr/about`, `#/fr/lab`, `#/fr/recruiter`, `#/fr/contact`. La langue conserve la page courante. Le CV et les captures authentiques restent en français.
+Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en/work`, `#/fr/work/consultai`, `#/fr/about`, `#/fr/recruiter`, `#/fr/contact`. La langue conserve la page courante. Le CV et les captures authentiques restent en français.
 
 ## Structure
 
@@ -87,6 +87,4 @@ Voir [le guide simple, sans terminal](docs/MODIFIER_MON_PORTFOLIO.md). Pour chan
 
 ## Refonte
 
-Voir `docs/REFONTE_V2.md` pour la version actuelle : 13 projets et démonstrations, 13 cartes illustrées, références de séries discrètes et découvertes à la demande, sept univers, un contact qui prépare un email et trois expériences métier.
-
-Pour comprendre la publication : [COMPRENDRE_VERCEL.md](docs/COMPRENDRE_VERCEL.md).
+Voir `docs/REFONTE_V3.md` pour la version actuelle : dix projets illustrés, quatre mini-jeux répartis dans les pages, un contact qui prépare un véritable email. Univers, le laboratoire et leurs anciens GIF sont supprimés.

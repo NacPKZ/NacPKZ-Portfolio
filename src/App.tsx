@@ -18,15 +18,13 @@ import BackToTop from './components/BackToTop';
 import Studio from './components/Studio';
 const About = lazy(() => import('./pages/About'));
 const CaseStudy = lazy(() => import('./pages/CaseStudy'));
-const Lab = lazy(() => import('./pages/Lab'));
 const Recruiter = lazy(() => import('./pages/Recruiter'));
 
-const ready: { about?: ComponentType; work?: ComponentType<{id:string}>; lab?: ComponentType; recruiter?: ComponentType } = {};
+const ready: { about?: ComponentType; work?: ComponentType<{id:string}>; recruiter?: ComponentType } = {};
 
 async function preloadPage(page: string, id?: string) {
   if (page === 'about') ready.about=(await import('./pages/About')).default;
   if (page === 'work' && id) ready.work=(await import('./pages/CaseStudy')).default;
-  if (page === 'lab') ready.lab=(await import('./pages/Lab')).default;
   if (page === 'recruiter') ready.recruiter=(await import('./pages/Recruiter')).default;
 }
 
@@ -82,7 +80,7 @@ export default function App() {
   useLayoutEffect(() => {
     document.documentElement.lang = lang;
     document.body.dataset.page = route.page;document.body.dataset.case=String(Boolean(route.id));
-    const titles: Record<string, string> = { home: c.positioning, work: c.work, about: c.about, lab: c.lab, contact: c.contact, recruiter: c.recruiter };
+    const titles: Record<string, string> = { home: c.positioning, work: c.work, about: c.about, contact: c.contact, recruiter: c.recruiter };
     document.title = `${identity.name} | ${route.id ? (projects.find(p=>p.id===route.id)?.title || c.notFound) + ' / ' : ''}${titles[route.page] || c.home}`;
     document.querySelector('meta[name="description"]')?.setAttribute('content', lang === 'fr' ? 'Portfolio de Can Pekgoz, étudiant M2 BIDABI. Data, BI, SQL, Python et stratégie. Stage de six mois dès mars 2027 en Île-de-France.' : 'Portfolio of Can Pekgoz, BIDABI master’s student. Data, BI, SQL, Python and strategy. Seeking a six-month internship from March 2027 in Île-de-France.');
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -103,7 +101,6 @@ export default function App() {
     case 'home': content = <Home />; break;
     case 'work': { const Page=ready.work||CaseStudy;content=route.id?<Page key={route.id} id={route.id}/>:<ProjectIndex/>;break; }
     case 'about': {const Page=ready.about||About;content=<Page/>;break;}
-    case 'lab': {const Page=ready.lab||Lab;content=<Page/>;break;}
     case 'contact': content = <Contact />; break;
     case 'recruiter': {const Page=ready.recruiter||Recruiter;content=<Page/>;break;}
     default: content = <><PageTitle pre="404" one={c.notFound} two="" description={c.notFoundDesc} /><div className="wrap"><Link className="button button-sage">{c.home}</Link></div></>;

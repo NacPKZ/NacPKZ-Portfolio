@@ -19,7 +19,7 @@ export default function Header() {
   const menuClosing = useRef(false);
   const items = [
     { path: '', label: c.home }, { path: 'work', label: c.work },
-    { path: 'about', label: c.about }, { path: 'lab', label: c.lab }, { path: 'contact', label: c.contact },
+    { path: 'about', label: c.about }, { path: 'contact', label: c.contact },
   ];
   const active = Math.max(0, items.findIndex(item => item.path === (route.page === 'home' ? '' : route.page)));
   const path = route.page === 'home' ? '' : route.page + (route.id ? '/' + route.id : '');

@@ -4,6 +4,7 @@ export function parseRoute(hash: string): Route {
   const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean);
   const lang: Lang = parts[0] === 'en' ? 'en' : 'fr';
   if (parts[0] === 'fr' || parts[0] === 'en') parts.shift();
+  if(parts[0]==='lab'||(parts[0]==='work'&&['washlab','detective','atelier'].includes(parts[1])))return {lang,page:'work',id:undefined};
   return { lang, page: parts[0] || 'home', id: parts[1] };
 }
 export function routeHref(lang: Lang, path = '') { return `#/${lang}/${path}`; }

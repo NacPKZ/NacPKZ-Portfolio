@@ -89,13 +89,13 @@ Tu peux aussi me demander : « Remplace mon CV par ce PDF » ou « Mets à jour 
 - [Modifier des fichiers dans GitHub](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files)
 - [Déploiements Vercel depuis Git](https://vercel.com/docs/git)
 
-## Identité, scènes et animations
+## Identité et mini-jeux
 
-`src/data/identity.ts` centralise le nom public. `src/data/series.ts` contient les sept univers et leurs couleurs. `SeriesMoment.tsx` affiche une référence fixe dans la partie personnelle et une animation contextuelle dans le simulateur. Les autres références se découvrent volontairement dans Univers. Les GIF et leurs affiches fixes sont dans `public/assets/series/`. Les photographies sont dans `public/assets/editorial/`, avec les crédits dans `public/assets/media-manifest.json`.
+`src/data/identity.ts` centralise le nom public. Les invitations sont dans `src/components/GameSpot.tsx`, les quatre jeux dans `src/components/games/`, les règles et données dans `src/utils/games.ts` et leurs animations dans `src/styles/play.css`.
 
-Les nouvelles démonstrations sont décrites dans `src/data/newProjects.ts`. Leurs calculs et exercices sont dans `src/utils/lab.ts`. Les projets documentés restent dans `src/data/projects.ts`. Pour ajouter une carte sans capture, prévoir une photographie `public/assets/editorial/ID_DU_PROJET.webp` et vérifier les droits et crédits.
+Les projets documentés sont dans `src/data/projects.ts`. Le projet Excel en construction est dans `src/data/newProjects.ts`. Les photographies sont dans `public/assets/editorial/`, avec leurs crédits dans `public/assets/media-manifest.json`.
 
-Le contact est géré par `ContactDraft.tsx` et `src/utils/contact.ts`. Modifier l’adresse dans `src/data/identity.ts`. Le site prépare l’email et le visiteur confirme l’envoi dans sa messagerie.
+Le CV reste `public/assets/Can_Pekgoz_CV.pdf`. Le remplacer en conservant exactement son nom, puis valider un commit dans GitHub.
 
 ## Adresse en ligne
 

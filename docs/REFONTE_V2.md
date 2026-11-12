@@ -1,3 +1,5 @@
+> Historique de la version précédente. La version actuelle est décrite dans [REFONTE_V3.md](REFONTE_V3.md).
+
 # Refonte cinéma, contact et expériences
 
 ## Modifications livrées

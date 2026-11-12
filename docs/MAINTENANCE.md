@@ -34,12 +34,6 @@ L'introduction se joue une fois par session et peut être ignorée. GSAP est cha
 
 Le menu mobile utilise une boîte de dialogue native en plein écran, une entrée GSAP et une fermeture animée. Échap ferme le menu et rend le focus au bouton. La galerie utilise une vraie boîte de dialogue avec fermeture par Échap et retour au déclencheur. Le lien d'accès direct au contenu place le focus sur le contenu principal.
 
-## Calculs du Lab
-
-`roi()` calcule le gain net de première année et un délai de retour simple supposant des flux constants. Les coûts annuels sont une hypothèse supplémentaire du visiteur et valent zéro dans les scénarios initiaux. Un investissement nul est interdit. Un flux annuel net non positif ne donne aucun délai de retour.
-
-`errorCosts()` applique les coûts hypothétiques aux faux positifs et faux négatifs documentés du test DataCo. Les erreurs restent fixes : changer les coûts ne change pas le modèle. Toute nouvelle courbe de seuil doit provenir d'exports réconciliés, jamais d'une interpolation inventée.
-
 ## Vérification et publication
 
 Exécuter les quatre commandes de validation du README, puis contrôler les parcours sur ordinateur, petite largeur et tablette. Vérifier aussi les états négatifs du ROI, les coûts nuls, la traduction, le rechargement d'une étude de cas, le retour navigateur, le CV et les liens.
@@ -54,18 +48,11 @@ Publier uniquement la version approuvée. Utiliser `docs/DEPLOYMENT.md` pour Ver
 
 La palette et la recherche de projets réutilisent `matchesSearch`. Les mots sont comparés sans accents ni casse, et tous les termes doivent être présents. Le stockage local concerne uniquement le choix index/galerie et la réduction du mouvement. Aucun historique de recherche n’est envoyé ni conservé par le site.
 
-## Studio et médias
 
-`Studio.tsx` contient Tous les projets, En construction, M’écrire et Univers. `ProjectVisual.tsx` est partagé par l’index, l’accueil et le Studio. Il affiche une capture si elle existe, sinon `assets/editorial/<id>.webp`.
+## Studio et jeux
 
-`series.ts` définit les sept univers. `SeriesMoment.tsx` utilise une affiche fixe par défaut. Le car wash active explicitement son GIF contextuel ; les autres animations de séries apparaissent dans une scène ouverte volontairement depuis le Studio. Les vignettes du Studio restent fixes. Une affiche remplace les GIF si le système demande de réduire le mouvement. Aucun choix de niveau d’animation n’est exposé dans l’interface.
+Le Studio propose Tous les projets, En construction et M’écrire. Univers et le laboratoire sont supprimés. Les dix cartes ont un visuel local fourni par `ProjectVisual.tsx`.
 
-## Contact
+Voir [REFONTE_V3.md](REFONTE_V3.md) pour les quatre jeux, les personnages SVG et les animations. Les règles sont dans `src/utils/games.ts`, les composants dans `src/components/games/`. Les délais sont nettoyés quand on ferme un jeu ou quitte une page.
 
-`createMessage` centralise le sujet, le corps et les liens mailto/Gmail/Outlook. Les champs sont encodés, le destinataire est fixe et les sauts de ligne du sujet sont retirés. Les contenus saisis restent dans le navigateur jusqu’à l’ouverture volontaire de la messagerie. Le visiteur confirme l’envoi. Aucun faux statut de livraison.
-
-## Laboratoire
-
-`src/utils/lab.ts` contient le calcul déterministe du car wash, les huit lignes fictives de l’enquête et les questions SQL. Les hypothèses et limites sont affichées dans le laboratoire. Les nouvelles entrées de portfolio sont dans `newProjects.ts` avec un statut explicite.
-
-Les GIF ne sont pas des preuves de projet. Garder les crédits et les informations de droits du manifest. Les nouveaux médias doivent avoir un poids raisonnable et une affiche fixe s’ils sont animés.
+Le contact prépare des brouillons via `src/utils/contact.ts`. Le visiteur confirme l’envoi dans son application mail, Gmail ou Outlook. Aucun serveur d’envoi ni clé email n’est dans le dépôt public.

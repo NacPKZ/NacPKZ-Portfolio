@@ -10,3 +10,4 @@ createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictM
 
 import './styles/reboot.css';
 import './styles/cinema.css';
+import './styles/play.css';

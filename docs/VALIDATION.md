@@ -165,3 +165,11 @@ Le déploiement initial `dpl_78vW9kEQ21MQZKChZ41FwzE4fru1` a terminé avec le st
 ### Équilibre professionnel final
 
 Références retirées de l’accueil, de l’index des projets, du parcours professionnel et du contact. Image fixe dans la partie personnelle, GIF contextuel dans le car wash, vignettes fixes dans le Studio. Nouvelle validation : TypeScript, ESLint, 45 tests et build de production réussis.
+
+## Version quatre mini-jeux, 12 novembre 2026
+
+Univers et Laboratoire supprimés. Plus de GIF de séries ni de lien de navigation vers le laboratoire. Dix projets illustrés conservés, dont Excel en construction.
+
+TypeScript, ESLint et 47 tests automatiques réussis. Le chifoumi a terminé à 2 manches à 1 pour Sherlock et son lien ouvre Contact. Tony affiche 3/3 après les solutions. Don Draper compose un lien email avec le brief réellement retenu. Daenerys : quatre paires retrouvées en six essais, puis mélange et remise à zéro confirmés dans le navigateur. Traduction anglaise de Tony vérifiée.
+
+À 320 px : Parcours et Contact affichent une largeur utile et une largeur de défilement identiques à 305 px. Aucun débordement horizontal, zéro violation axe détectée (respectivement 24 et 28 contrôles réussis). Le contrôle a révélé puis permis de corriger le nom trop large dans Parcours et un contraste transitoire du bouton final de Contact. Ces audits ne remplacent pas un test sur téléphone physique.

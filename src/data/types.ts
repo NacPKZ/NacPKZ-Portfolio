@@ -8,6 +8,6 @@ export interface Project {
   tagline: Localized; summary: Localized; nature: Localized;
   tech: string[]; metrics: Metric[]; problem: Localized; method: Localized[];
   outcome: Localized; limits: Localized; learning: Localized;
-  repo?: string; demo?: string; experience?: string; status?: 'demo' | 'building'; sources: { label: Localized; url: string }[];
+  repo?: string; demo?: string; status?: 'demo' | 'building'; sources: { label: Localized; url: string }[];
   images?: { src: string; caption: Localized }[]; accent: string;
 }
