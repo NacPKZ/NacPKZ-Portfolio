@@ -1,6 +1,6 @@
 # Modifier mon portfolio, sans passer par le terminal
 
-Ce guide concerne le dépôt dédié `NacPKZ-Portfolio`. Les changements sont conservés dans GitHub. Vercel reconstruit le site après une modification de la branche `main`, à condition que la connexion au dépôt et la publication aient été effectivement configurées.
+Ce guide concerne le dépôt dédié `NacPKZ-Portfolio`. Les changements sont conservés dans GitHub. Vercel reconstruit et publie le site après une modification de la branche `main`, lorsque les contrôles réussissent.
 
 ## Remplacer mon CV
 
@@ -79,7 +79,7 @@ Si le navigateur affiche encore l'ancien PDF, rafraîchis la page et réessaie d
 
 ## Revenir en arrière
 
-Pour une erreur de texte ou de PDF, le plus simple est de corriger ou de remettre le fichier précédent, puis de créer un nouveau commit. L'historique GitHub garde les versions. Le retour arrière Vercel peut servir en urgence, mais il faut ensuite corriger la source GitHub pour que les prochains déploiements restent cohérents.
+Pour une erreur de texte ou de PDF, le plus simple est de corriger ou de remettre le fichier précédent, puis de créer un nouveau commit. L'historique GitHub garde les versions. Pour revenir à une version précédente, restaure les fichiers concernés depuis l’historique GitHub puis valide un nouveau commit. Les contrôles et la publication repartent automatiquement.
 
 Tu peux aussi me demander : « Remplace mon CV par ce PDF » ou « Mets à jour mon expérience dans le portfolio ». Je pourrai modifier les bons fichiers et vérifier les résultats, avec les accès nécessaires.
 
@@ -92,3 +92,13 @@ Tu peux aussi me demander : « Remplace mon CV par ce PDF » ou « Mets à jour 
 ## Identité, scènes et animations
 
 `src/data/identity.ts` centralise le nom public et le nom validé « Scène post-générique ». `src/data/journeys.ts` définit les trois itinéraires. `MotionGallery.tsx` contient les légendes des GIF et les commandes de lecture. Les six GIF et leurs images fixes se trouvent dans `public/assets/loops/`. Les remplacer par paires avec les mêmes noms pour garder le mode de mouvement réduit.
+
+## Adresse en ligne
+
+Site principal : https://nacpkz-portfolio.vercel.app/
+
+Dépôt : https://github.com/NacPKZ/NacPKZ-Portfolio
+
+La publication utilise Vercel, projet `nacpkz-portfolio` dans l’espace Nac (`nac18`). Après un commit sur `main`, Vercel installe les dépendances, contrôle TypeScript et ESLint, exécute les tests puis construit et déploie le site. Consulter GitHub Actions et les déploiements Vercel pour suivre la publication. Si le build échoue, la dernière production réussie reste en ligne.
+
+GitHub Pages conserve une copie de secours synchronisée à https://nacpkz.github.io/NacPKZ-Portfolio/.

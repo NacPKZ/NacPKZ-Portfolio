@@ -4,7 +4,7 @@ Portfolio indépendant, bilingue FR/EN, développé avec React 19, TypeScript, V
 
 ## État de publication
 
-Dépôt public : https://github.com/NacPKZ/NacPKZ-Portfolio. Publication Vercel autorisée, en cours de préparation après la refonte.
+Dépôt public : https://github.com/NacPKZ/NacPKZ-Portfolio. Site public : https://nacpkz-portfolio.vercel.app/. Hébergement Vercel dans l’espace Nac (nac18), connecté au dépôt. Déploiement automatique après TypeScript, ESLint, les 33 tests et le build. GitHub Pages conserve une copie de secours.
 
 Le projet est autonome : aucun compte ChatGPT, composant OpenAI, service d'IA ou serveur privé n'est nécessaire aux visiteurs. Tout le contenu et les calculs du Lab s'exécutent dans le navigateur.
 
@@ -19,7 +19,7 @@ npm run validate
 npm run build
 ```
 
-`validate` exécute TypeScript, ESLint et Vitest. Le build Vercel exécute cette validation avant de générer `dist`.
+`validate` exécute TypeScript, ESLint et Vitest. Les workflows GitHub et la configuration Vercel exécutent ces contrôles avant publication.
 
 ## Expérience
 
@@ -59,7 +59,7 @@ Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en
 
 ## Publication
 
-Vercel est la cible principale, connecté au dépôt dédié. Le build vérifié s'exécute avant chaque déploiement. Un changement qui échoue à TypeScript, au lint, aux tests ou au build ne remplace pas la production.
+Vercel est l’hébergement principal, avec déploiement automatique depuis le dépôt dédié. GitHub Pages conserve une copie de secours synchronisée. Le build vérifié s’exécute avant chaque déploiement. Un changement qui échoue à TypeScript, au lint, aux tests ou au build ne remplace pas la production.
 
 Créer des branches de travail et valider les changements avant fusion dans `main`. Le contrôle GitHub `Validate portfolio / validate` peut être rendu obligatoire dans une règle de branche, selon les options disponibles du compte. Cette règle n'est pas activée par un simple fichier de workflow.
 

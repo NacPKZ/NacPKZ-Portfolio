@@ -133,3 +133,15 @@ Histoire vérifiée : le visiteur choisit un itinéraire, sélectionne des proje
 - Corrections mobiles : disposition de la console en colonne à très petite largeur et libellés des liens de captures corrigés.
 
 Les animations d’entrée font varier temporairement l’opacité. Un audit déclenché pendant leur exécution peut mesurer un contraste transitoire. Le contrôle indiqué ci-dessus a été réalisé sur le rendu stabilisé. Le mode de mouvement réduit désactive ces animations et garde les GIF en images fixes.
+
+## Vérification distante GitHub Pages
+
+Le workflow Pages du commit `78ac2a2` a terminé avec succès le 12 novembre 2026 : validation 23 secondes, déploiement 10 secondes, durée totale 40 secondes. Le site public s’ouvre à https://nacpkz.github.io/NacPKZ-Portfolio/ sans connexion.
+
+En production : accueil centré sur Can affiché, aucune image chargée en erreur dans le contrôle DOM, comparaison NovaTel/Olist affichée, ouverture et rechargement du lien profond NovaTel réussis, changement vers l’anglais confirmé avec titre d’onglet canonique.
+
+Audit local supplémentaire en anglais à 390 px : zéro violation axe, 28 contrôles réussis ; largeur utile et largeur de défilement identiques à 375 px. Ce contrôle utilise un cadre de navigateur et ne remplace pas un test sur téléphone physique.
+
+## Production Vercel
+
+Le déploiement initial `dpl_78vW9kEQ21MQZKChZ41FwzE4fru1` a terminé avec le statut « Deployed to Production » dans l’espace Nac (`nac18`). URL attribuée et ouverte : https://nacpkz-portfolio.vercel.app/. Le dépôt et le commit `78ac2a2` sont indiqués dans l’interface Vercel. L’accueil et ses ressources sont visibles à cette adresse. Le CV publié a aussi été ouvert et lu dans le visualiseur PDF du navigateur sur la copie Pages.
