@@ -22,12 +22,12 @@ export default function MotionScene({ children }: { children: ReactNode }) {
           seen.add(el);
           // The upper viewport remains immediately readable. Offscreen content reveals once.
           if (el.getBoundingClientRect().top < innerHeight * 0.9) return;
-          gsap.fromTo(el, { y: 38, opacity: 1 }, { y: 0, opacity: 1, duration: 0.85, ease: 'power3.out', clearProps: 'transform,opacity', scrollTrigger: { trigger: el, start: 'top 93%', once: true } });
+          gsap.fromTo(el, { y: 18, opacity: 1 }, { y: 0, opacity: 1, duration: 0.55, ease: 'power2.out', clearProps: 'transform,opacity', scrollTrigger: { trigger: el, start: 'top 93%', once: true } });
         });
         root.current.querySelectorAll<HTMLElement>('.feature-stage, .project-art').forEach(el => {
           if (seen.has(el)) return;
           seen.add(el);
-          gsap.fromTo(el, { clipPath: 'inset(8% 0 8% 0)' }, { clipPath: 'inset(0% 0 0% 0)', duration: 1.05, ease: 'power3.out', clearProps: 'clipPath', scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
+          gsap.fromTo(el, { clipPath: 'inset(3% 0 3% 0)' }, { clipPath: 'inset(0% 0 0% 0)', duration: 0.65, ease: 'power2.out', clearProps: 'clipPath', scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
         });
       });
       enhance();
@@ -38,13 +38,5 @@ export default function MotionScene({ children }: { children: ReactNode }) {
     });
     return () => { disposed = true; observer?.disconnect(); cleanup?.(); };
   }, [reduced, route.page, route.id]);
-  useEffect(()=>{
-    const scene=root.current;
-    if(!scene||reduced||!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
-    let frame=0;let current:HTMLElement|null=null;let x=0,y=0;
-    const clear=()=>{if(current){for(const prop of ['--tilt-x','--tilt-y','--magnet-x','--magnet-y'])current.style.removeProperty(prop);}current=null;};
-    const move=(event:PointerEvent)=>{const target=(event.target as HTMLElement).closest<HTMLElement>('.index-preview,.project-art,.button');if(!target||!scene.contains(target)){clear();return;}if(current!==target){clear();current=target;}const bounds=target.getBoundingClientRect();x=(event.clientX-bounds.left)/bounds.width-.5;y=(event.clientY-bounds.top)/bounds.height-.5;if(!frame)frame=requestAnimationFrame(()=>{frame=0;if(!current)return;current.style.setProperty('--tilt-x',`${-y*4}deg`);current.style.setProperty('--tilt-y',`${x*4}deg`);current.style.setProperty('--magnet-x',`${x*12}px`);current.style.setProperty('--magnet-y',`${y*10}px`);});};
-    scene.addEventListener('pointermove',move,{passive:true});scene.addEventListener('pointerleave',clear);return()=>{cancelAnimationFrame(frame);clear();scene.removeEventListener('pointermove',move);scene.removeEventListener('pointerleave',clear);};
-  },[reduced,route.page,route.id]);
   return <div className="route-scene" ref={root}>{children}</div>;
 }

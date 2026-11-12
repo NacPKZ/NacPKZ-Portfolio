@@ -195,3 +195,17 @@ Contrôle complémentaire à 320 px sur l’accueil avec Sherlock ouvert : large
 Les audits portent sur des cadres Chromium et ne constituent ni un test sur téléphone physique, ni une garantie d’absence de tout bug. Aucun score Lighthouse ni test Safari/Firefox réel n’est revendiqué.
 
 Validation finale V4 : TypeScript, ESLint, les 58 tests et le build de production réussis. Don Draper rejoué depuis la rubrique Jeux : les trois cartes retenues se retrouvent dans le corps du lien mailto. Aucun email envoyé.
+
+## Stabilité des projets et fluidité
+
+12 novembre 2026, après la V4. Suppression du suivi du pointeur, des rotations 3D des images et de la rotation d’entrée des cartes. Les apparitions se limitent à un déplacement vertical plus court ; les transitions de pages sont raccourcies, sans déformation ni recadrage animé. Les titres ne sautent plus au survol. Les informations au bas des cartes de l’accueil s’alignent par rangée.
+
+- TypeScript, ESLint, 58 tests Vitest et build de production réussis.
+- Accueil desktop : bas de cartes alignés pour chacune des trois premières rangées de trois projets ; matrices de transformation sans rotation.
+- Galerie desktop : dix projets, aucune intersection des titres avec les badges ; aucune rotation des images, y compris sur le projet survolé ; largeur et défilement identiques à 1348 px.
+- Index puis Galerie à 320 px extérieurs : largeur utile et défilement 305 px, zéro violation axe, 24 contrôles réussis dans chaque vue.
+- Parcours à 390 px : largeur utile et défilement 375 px, zéro violation axe, 24 contrôles réussis.
+- Contact à 320 px : largeur utile et défilement 305 px, zéro violation axe, 28 contrôles réussis.
+- Navigation ordinateur manipulée entre Accueil, Projets, Parcours et Contact ; galerie et espacements inspectés visuellement.
+
+Ces contrôles Chromium ciblent les défauts observables de mise en page. Ils ne garantissent pas l’absence de tout bug sur chaque appareil.

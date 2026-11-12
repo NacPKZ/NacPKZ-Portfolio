@@ -36,3 +36,7 @@ Les nouveaux effets accompagnent les actions : cartes du catalogue, personnages 
 - CV : remplacer `public/assets/Can_Pekgoz_CV.pdf`, nom inchangé.
 
 Les règles déterministes sont testées séparément des animations. Voir le bilan de validation pour les contrôles réellement exécutés et leurs limites.
+
+## Ajustement de fluidité
+
+Les images des projets restent droites. Le suivi 3D de la souris et la rotation d’apparition des cartes sont supprimés. Les mouvements d’entrée et transitions sont plus courts, avec un zoom de survol discret. Les informations en bas des cartes de l’accueil sont alignées. Les effets des jeux restent indépendants de ces corrections.
