@@ -13,7 +13,7 @@ La publication publique, le contenu personnel et le CV ont été autorisés par 
 
 ## Publication d’une mise à jour
 
-Vercel est connecté au dépôt et reconstruit les commits sur `main`. `vercel.json` impose `npm ci`, puis `npm run validate && npm run build`, sortie `dist`. `validate` lance TypeScript, ESLint et les 33 tests. Une compilation échouée ne remplace pas la dernière production réussie.
+Vercel est connecté au dépôt et reconstruit les commits sur `main`. `vercel.json` impose `npm ci`, puis `npm run validate && npm run build`, sortie `dist`. `validate` lance TypeScript, ESLint et les tests automatiques. Une compilation échouée ne remplace pas la dernière production réussie.
 
 Pour modifier le site, créer une branche, examiner les changements puis fusionner dans `main`. GitHub Actions exécute également une validation séparée. La présence d’un workflow ne constitue pas une règle imposant une revue humaine : aucune règle de branche supplémentaire n’a été ajoutée.
 

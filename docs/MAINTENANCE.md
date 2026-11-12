@@ -54,15 +54,18 @@ Publier uniquement la version approuvée. Utiliser `docs/DEPLOYMENT.md` pour Ver
 
 La palette et la recherche de projets réutilisent `matchesSearch`. Les mots sont comparés sans accents ni casse, et tous les termes doivent être présents. Le stockage local concerne uniquement le choix index/galerie et la réduction du mouvement. Aucun historique de recherche n’est envoyé ni conservé par le site.
 
-## Studio, objectifs et scène post-générique
+## Studio et médias
 
-`Studio.tsx` regroupe Tous les projets, La suite, Mon carnet, Ambiance et Scène post-générique. `ProjectAtlas.tsx`, chargé à la demande, présente les projets dans une grille égale, sans centre. Les cartes suivent automatiquement `projects.ts`.
+`Studio.tsx` contient Tous les projets, En construction, M’écrire et Univers. `ProjectVisual.tsx` est partagé par l’index, l’accueil et le Studio. Il affiche une capture si elle existe, sinon `assets/editorial/<id>.webp`.
 
-Les notes du visiteur sont du texte brut local, limité à 2 000 caractères. Elles ne sont ni publiées ni transmises. Les commandes d'export et de copie agissent uniquement à la demande du visiteur.
+`series.ts` définit les sept univers. `SeriesMoment.tsx` est utilisé dans les différentes pages. Les GIF se lancent automatiquement à l’affichage ; une affiche fixe est utilisée si le système demande de réduire le mouvement. Aucun choix de niveau d’animation n’est exposé dans l’interface.
 
-`roadmap.ts` contient les projets et apprentissages à venir. Ne pas transformer un objectif en certification obtenue ni publier un pourcentage de progression arbitraire. Après publication effective, mettre à jour le statut du portfolio indépendant pour éviter de garder un état « en préparation » périmé.
+## Contact
 
-Les effets de la scène post-générique durent huit secondes au maximum et se ferment par Échap ou leur bouton. Leur rendu utilise un portail à l'intérieur du dialogue Studio quand il est ouvert. Garder cette règle pour éviter un effet invisible derrière la couche modale.
+`createMessage` centralise le sujet, le corps et les liens mailto/Gmail/Outlook. Les champs sont encodés, le destinataire est fixe et les sauts de ligne du sujet sont retirés. Les contenus saisis restent dans le navigateur jusqu’à l’ouverture volontaire de la messagerie. Le visiteur confirme l’envoi. Aucun faux statut de livraison.
 
+## Laboratoire
 
-La collection de l’accueil réutilise `projects.ts`. Les préférences locales comprennent aussi la sélection de trois projets, la couleur, le carnet, le mode lecture et les références découvertes. Le brouillon de contact reste en mémoire jusqu’à la navigation et n’est jamais envoyé par le site.
+`src/utils/lab.ts` contient le calcul déterministe du car wash, les huit lignes fictives de l’enquête et les questions SQL. Les hypothèses et limites sont affichées dans le laboratoire. Les nouvelles entrées de portfolio sont dans `newProjects.ts` avec un statut explicite.
+
+Les GIF ne sont pas des preuves de projet. Garder les crédits et les informations de droits du manifest. Les nouveaux médias doivent avoir un poids raisonnable et une affiche fixe s’ils sont animés.

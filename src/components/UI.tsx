@@ -1,7 +1,8 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react';
 import { useApp } from '../utils/context';
 import { routeHref } from '../utils/route';
-export function Arrow({ diagonal = false, className = '' }: { diagonal?: boolean; className?: string }) {
+export function Arrow({ diagonal = false, className = '', essential = false }: { diagonal?: boolean; className?: string; essential?: boolean }) {
+  if (!essential) return null;
   return <svg className={`arrow ${className}`} viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={diagonal ? 'M5 19 19 5M5 5h14v14' : 'M3 12h18M14 5l7 7-7 7'} stroke="currentColor" strokeWidth="1.5" /></svg>;
 }
 export function Link({ to = '', children, className = '', ...rest }: Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & { to?: string }) {

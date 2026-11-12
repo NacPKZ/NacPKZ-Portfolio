@@ -1,3 +1,4 @@
+import { newProjects } from './newProjects';
 import { l } from './types';
 import type { Project } from './types';
 const github = 'https://github.com/NacPKZ/';
@@ -95,4 +96,5 @@ export const projects: Project[] = [
     summary: l('Un pipeline Python et une application Streamlit pour comparer cinq sujets dans le temps et selon les zones géographiques.', 'A Python pipeline and Streamlit application comparing five topics over time and across geographies.'), nature: l('Indices Google Trends relatifs, de 0 à 100. Aucun volume absolu de recherches.', 'Relative Google Trends indices from 0 to 100. No absolute search volumes.'), tech: ['Python', 'Pandas', 'Streamlit', 'pytrends', 'Dataviz'], metrics: [{ value: '5', label: l('sujets comparés', 'topics compared') }],
     problem: l('Comment comparer des tendances temporelles et géographiques à partir d’indices normalisés ?', 'How can temporal and geographical trends be compared using normalised indices?'), method: [l('Collecter, nettoyer et enrichir les données par pays et continent.', 'Collect, clean and enrich data by country and continent.'), l('Créer des indicateurs de domination relative et des visualisations interactives.', 'Create relative-dominance indicators and interactive visualisations.')], outcome: l('Des vues temporelles, géographiques et par continent, accompagnées d’une application Streamlit.', 'Time-series, geographical and continental views alongside a Streamlit application.'), limits: l('La normalisation et le périmètre des extractions conditionnent les comparaisons. Un indice élevé n’est pas un nombre de recherches.', 'Normalisation and extraction scope determine which comparisons are meaningful. A high index is not a search count.'), learning: l('La définition de l’échelle est aussi importante que la forme du graphique.', 'The scale’s definition matters as much as the chart’s design.'), repo: github + 'Google-Trends-Analytics', sources: [{ label: l('Pipeline et visualisations', 'Pipeline and visualisations'), url: github + 'Google-Trends-Analytics/blob/main/README.md' }],
   },
+  ...newProjects,
 ];

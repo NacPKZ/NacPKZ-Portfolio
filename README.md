@@ -4,7 +4,7 @@ Portfolio indépendant, bilingue FR/EN, développé avec React 19, TypeScript, V
 
 ## État de publication
 
-Dépôt public : https://github.com/NacPKZ/NacPKZ-Portfolio. Site public : https://nacpkz-portfolio.vercel.app/. Hébergement Vercel dans l’espace Nac (nac18), connecté au dépôt. Déploiement automatique après TypeScript, ESLint, les 33 tests et le build. GitHub Pages conserve une copie de secours.
+Dépôt public : https://github.com/NacPKZ/NacPKZ-Portfolio. Site public : https://nacpkz-portfolio.vercel.app/. Hébergement Vercel dans l’espace Nac (nac18), connecté au dépôt. Déploiement automatique après TypeScript, ESLint, les tests automatiques et le build. GitHub Pages conserve une copie de secours.
 
 Le projet est autonome : aucun compte ChatGPT, composant OpenAI, service d'IA ou serveur privé n'est nécessaire aux visiteurs. Tout le contenu et les calculs du Lab s'exécutent dans le navigateur.
 
@@ -29,9 +29,9 @@ npm run build
 - Transitions de pages natives avec repli GSAP ; chapitres contextuels des études de cas.
 - Galerie de captures authentiques, modules ROI/erreurs/qualité et mode recruteur avec CV.
 - Rubrique « Ce qui m’anime » : films, séries, animés, documentaires, lecture, curiosité, ateliers, culture kurde et solidarité.
-- Studio à cinq volets : Tous les projets, La suite, Mon carnet, Ambiance et Scène post-générique.
-- Objectifs à venir : projet Excel Smart Finance 360 et préparation PL-300, sans prétendre à leur réalisation.
-- Préférence de mouvement réduit, mode lecture, trois accents et retour en haut de page accessibles au clavier.
+- Studio à quatre volets : Tous les projets, En construction, M’écrire et Univers.
+- Objectifs à venir : Projet Excel en construction et préparation PL-300, sans prétendre à leur réalisation.
+- Animations dynamiques automatiques, préférence système de mouvement réduit respectée, sept palettes de séries et retour en haut accessible au clavier.
 
 Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en/work`, `#/fr/work/consultai`, `#/fr/about`, `#/fr/lab`, `#/fr/recruiter`, `#/fr/contact`. La langue conserve la page courante. Le CV et les captures authentiques restent en français.
 
@@ -87,4 +87,6 @@ Voir [le guide simple, sans terminal](docs/MODIFIER_MON_PORTFOLIO.md). Pour chan
 
 ## Refonte
 
-Voir `docs/REFONTE.md` : 20 changements de structure et de fonction, 36 nouvelles séquences CSS et six GIF originaux. Sélection comparative, itinéraires, explorateur d’expériences et brouillon de contact inclus.
+Voir `docs/REFONTE_V2.md` pour la version actuelle : 13 projets et démonstrations, 13 cartes illustrées, cinq GIF de séries répartis dans les pages, sept univers, un contact qui prépare un email et trois expériences métier.
+
+Pour comprendre la publication : [COMPRENDRE_VERCEL.md](docs/COMPRENDRE_VERCEL.md).

@@ -60,7 +60,7 @@ Modifier une fiche existante est plus simple que créer une nouvelle structure. 
 
 ## Mettre à jour la feuille de route
 
-Ouvre `src/data/roadmap.ts`. Le projet Excel est Smart Finance 360. La certification est Microsoft PL-300.
+Ouvre `src/data/roadmap.ts`. Le projet porte le nom Projet Excel en construction. La certification est Microsoft PL-300.
 
 Ne transforme pas une préparation en certification obtenue sans avoir passé l'examen. Si un objectif est terminé, il faut mettre à jour son statut et son texte ensemble, et adapter les libellés dans `Roadmap.tsx` si un nouveau statut est ajouté. Le site n'affiche pas de pourcentage de progression inventé.
 
@@ -91,7 +91,11 @@ Tu peux aussi me demander : « Remplace mon CV par ce PDF » ou « Mets à jour 
 
 ## Identité, scènes et animations
 
-`src/data/identity.ts` centralise le nom public et le nom validé « Scène post-générique ». `src/data/journeys.ts` définit les trois itinéraires. `MotionGallery.tsx` contient les légendes des GIF et les commandes de lecture. Les six GIF et leurs images fixes se trouvent dans `public/assets/loops/`. Les remplacer par paires avec les mêmes noms pour garder le mode de mouvement réduit.
+`src/data/identity.ts` centralise le nom public. `src/data/series.ts` contient les sept univers et leurs couleurs. `SeriesMoment.tsx` affiche les références au fil des pages. Les GIF et leurs affiches fixes sont dans `public/assets/series/`. Les photographies sont dans `public/assets/editorial/`, avec les crédits dans `public/assets/media-manifest.json`.
+
+Les nouvelles démonstrations sont décrites dans `src/data/newProjects.ts`. Leurs calculs et exercices sont dans `src/utils/lab.ts`. Les projets documentés restent dans `src/data/projects.ts`. Pour ajouter une carte sans capture, prévoir une photographie `public/assets/editorial/ID_DU_PROJET.webp` et vérifier les droits et crédits.
+
+Le contact est géré par `ContactDraft.tsx` et `src/utils/contact.ts`. Modifier l’adresse dans `src/data/identity.ts`. Le site prépare l’email et le visiteur confirme l’envoi dans sa messagerie.
 
 ## Adresse en ligne
 

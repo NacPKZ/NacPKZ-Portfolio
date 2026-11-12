@@ -1,3 +1,5 @@
+> Historique de la première version. Pour les fonctionnalités actuelles, voir [REFONTE_V2.md](REFONTE_V2.md).
+
 # 100 pistes pour faire évoluer le portfolio
 
 Version du 12 novembre 2026. Les trente premières lignes décrivent le travail de cette version ou un mécanisme renforcé. Les soixante-dix suivantes sont des pistes à arbitrer, pas des fonctionnalités promises ni du contenu personnel supposé.

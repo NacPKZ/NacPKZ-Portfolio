@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { series } from '../data/series';
 import { projects } from '../data/projects';
 import { useApp } from '../utils/context';
 import { routeHref } from '../utils/route';
 import { requestStudio, requestEgg } from '../utils/studio';
 import { matchesSearch } from '../utils/search';
 export default function CommandPalette() {
-  const { c, lang, route, reduced, setReduced } = useApp();
+  const { c, lang, route } = useApp();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState(0);
@@ -18,12 +19,9 @@ export default function CommandPalette() {
     ...[{path:'',title:c.home},{path:'work',title:c.work},{path:'about',title:lang==='fr'?'Parcours & ce qui m’anime':'Background & what moves me'},{path:'lab',title:c.lab},{path:'recruiter',title:c.recruiter},{path:'contact',title:c.contact}].map(p=>({id:'page-'+p.path,title:p.title,detail:lang==='fr'?'Page':'Page',href:routeHref(lang,p.path),action:undefined as undefined | (()=>void)})),
     ...projects.map(p=>({id:p.id,title:p.title,detail:p.tech.slice(0,3).join(' / '),search:p.summary[lang]+' '+p.tagline[lang]+' '+p.category.join(' '),href:routeHref(lang,'work/'+p.id),action:undefined as undefined | (()=>void)})),
     {id:'language',title:lang==='fr'?'Passer en anglais':'Switch to French',detail:'FR / EN',href:routeHref(lang==='fr'?'en':'fr',currentPath),action:undefined as undefined | (()=>void)},
-    {id:'studio',title:lang==='fr'?'Ouvrir le Studio':'Open the Studio',detail:lang==='fr'?'Projets / Carnet / La suite':'Projects / Notebook / Roadmap',href:'',action:requestStudio},
-    {id:'portal',title:'Upside Down',detail:'Stranger Things / secret',href:'',action:()=>requestEgg('portal')},
-    {id:'winter',title:'Winter is coming',detail:'Game of Thrones / secret',href:'',action:()=>requestEgg('winter')},
-    {id:'office',title:'Dunder Data',detail:'The Office / secret',href:'',action:()=>requestEgg('office')},
-    {id:'motion',title:lang==='fr'?(reduced?'Activer les animations':'Réduire les animations'):(reduced?'Enable motion':'Reduce motion'),detail:lang==='fr'?'Préférence locale':'Local preference',href:'',action:()=>setReduced(!reduced)},
-  ],[c,lang,currentPath,reduced,setReduced]);
+    {id:'studio',title:lang==='fr'?'Ouvrir le Studio':'Open the Studio',detail:lang==='fr'?'Projets / Message / Univers':'Projects / Message / Worlds',href:'',action:requestStudio},
+    ...series.map(item=>({id:'series-'+item.id,title:item.title,detail:lang==='fr'?'Univers et référence':'World and reference',href:'',action:()=>requestEgg(item.id)})),
+  ],[c,lang,currentPath]);
   const results = commands.filter(item=>matchesSearch(item.title+' '+item.detail+('search' in item?' '+item.search:''),query));
   const close = () => { dialog.current?.close(); setOpen(false); previousFocus.current?.focus(); };
   const show = () => { previousFocus.current=document.activeElement as HTMLElement; setQuery('');setSelected(0);setOpen(true); };

@@ -145,3 +145,23 @@ Audit local supplémentaire en anglais à 390 px : zéro violation axe, 28 contr
 ## Production Vercel
 
 Le déploiement initial `dpl_78vW9kEQ21MQZKChZ41FwzE4fru1` a terminé avec le statut « Deployed to Production » dans l’espace Nac (`nac18`). URL attribuée et ouverte : https://nacpkz-portfolio.vercel.app/. Le dépôt et le commit `78ac2a2` sont indiqués dans l’interface Vercel. L’accueil et ses ressources sont visibles à cette adresse. Le CV publié a aussi été ouvert et lu dans le visualiseur PDF du navigateur sur la copie Pages.
+
+## Refonte cinéma et expériences, 12 novembre 2026
+
+- 45 tests : calculs historiques, capacité et rentabilité du car wash, cas sans client, marge non positive, arrondi des clients servis, règles de l’enquête, questions SQL, composition et encodage des emails, destinations mail et intégrité des médias.
+- TypeScript et ESLint validés.
+- Studio : treize balises image, chacune avec une ressource locale, pour treize cartes.
+- M’écrire : prénom fictif, message et sélection A1 Wash Lab saisis ; sujet et corps de l’aperçu concordent avec le mailto final. Aucun email de test envoyé.
+- Univers : sept références, ambiance sélectionnée répercutée et scène de détail affichée.
+- Car wash : rush à deux pistes, 120 clients servis et 1 160 € de résultat ; trois pistes, 180 clients servis et 1 780 € de résultat, hypothèses inchangées.
+- Enquête : sélection 03/04/05/06, verdict 4/4, total brut 750 €, CA selon la règle 505 €.
+- Atelier : trois réponses exactes, score 3/3 et corrections visibles.
+- Laboratoire à 320 px : largeur utile 305 px, défilement 305 px après correction du titre. Audit axe : zéro violation, 29 contrôles réussis.
+- Contact à 390 px : largeur utile 375 px, défilement 375 px. Audit axe : zéro violation, 29 contrôles réussis.
+- Les contrôles sur cadres de navigateur ne remplacent pas des essais sur téléphones physiques. Les audits automatiques ne garantissent pas l’absence de tout défaut.
+
+- Accueil à 320 px : largeur utile 305 px, défilement 305 px, aucun débordement. Audit axe : zéro violation, 26 contrôles réussis.
+
+### Équilibre professionnel final
+
+Références retirées de l’accueil, de l’index des projets, du parcours professionnel et du contact. Image fixe dans la partie personnelle, GIF contextuel dans le car wash, vignettes fixes dans le Studio. Nouvelle validation : TypeScript, ESLint, 45 tests et build de production réussis.

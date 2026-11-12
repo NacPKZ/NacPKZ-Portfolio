@@ -17,7 +17,7 @@ export default function MotionScene({ children }: { children: ReactNode }) {
       const ctx = gsap.context(() => {}, root);
       const enhance = () => ctx.add(() => {
         if (!root.current) return;
-        root.current.querySelectorAll<HTMLElement>('.section-heading, .feature-title-row, .case-body h2, .case-reflection > div, .experience-row, .project-index-row, .education-row, .lab-teaser > div, .contact-grid, .case-metrics > div').forEach(el => {
+        root.current.querySelectorAll<HTMLElement>('.section-heading, .feature-title-row, .case-body h2, .case-reflection > div, .experience-row, .project-index-row, .education-row, .lab-teaser > div, .contact-grid, .case-metrics > div, .series-bridge, .lab-invitation, .collection-card, .universe-card').forEach(el => {
           if (seen.has(el)) return;
           seen.add(el);
           // The upper viewport remains immediately readable. Offscreen content reveals once.

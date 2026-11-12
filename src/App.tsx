@@ -37,7 +37,7 @@ class ErrorBoundary extends Component<{ children: ReactNode; title: string; retr
 }
 export default function App() {
   const [route, setRoute] = useState(() => parseRoute(location.hash));
-  const [reduced, setReduced] = useState(() => { try { const saved=localStorage.getItem('can-motion'); return saved===null?window.matchMedia('(prefers-reduced-motion: reduce)').matches:saved==='reduced'; } catch { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } });
+  const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   const lang = route.lang;
   const c = copy[lang];
   const firstRender = useRef(true);

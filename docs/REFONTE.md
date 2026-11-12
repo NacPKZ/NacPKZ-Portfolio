@@ -1,3 +1,5 @@
+> Historique de la première version. Pour les fonctionnalités actuelles, voir [REFONTE_V2.md](REFONTE_V2.md).
+
 # Refonte du 12 novembre 2026
 
 ## 20 changements de structure et de fonction
