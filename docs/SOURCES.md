@@ -29,7 +29,6 @@ Les volumes dégradés sont les sommes des `row_counts` des journaux. Les évén
 | ClassicModels | README, analyses et limites documentées |
 | FHIR | README, données synthétiques et architecture documentée ; aucune conclusion médicale ajoutée |
 | Spotify | README, mention des deux auteurs ; aucune attribution individuelle exhaustive |
-| Word2Vec | README, protocole et limites des mesures expérimentales |
 | Google Trends | README, indices relatifs et périmètres décrits |
 
 Liens d'origine : [compte GitHub NacPKZ](https://github.com/NacPKZ). Les fiches de projets contiennent les liens directs vers les dépôts et livrables. La disponibilité permanente d'un service externe, notamment Streamlit, n'est pas garantie.

@@ -1,4 +1,4 @@
-# Can Pekgoz | Data, Intelligence & Business Strategy
+# Can Pekgoz | Données, analyse et stratégie
 
 Portfolio indépendant, bilingue FR/EN, développé avec React 19, TypeScript, Vite et GSAP. Projets documentés, études de cas, huit mini-jeux, trois ambiances visuelles et présentation personnelle.
 
@@ -50,7 +50,7 @@ Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en
 | `src/components/ProjectIndex.tsx` | Recherche, catégories, index et galerie |
 | `src/components/MotionScene.tsx` | Animations progressives et nettoyage GSAP |
 | `src/utils/` | Routage, recherche, calculs et origine publique |
-| `src/styles/` | Mise en page, responsive, impression et préférences de mouvement |
+| `src/styles/` | Mise en page, adaptation aux écrans, impression et préférences de mouvement |
 | `public/assets/` | Captures, CV, image de partage et polices locales licenciées |
 | `tests/` | Calculs, contenu, recherche et métadonnées de déploiement |
 | `vercel.json` | Build validé et sortie Vercel |
@@ -63,7 +63,7 @@ Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en
 
 Vercel est l’hébergement principal, avec déploiement automatique depuis le dépôt dédié. GitHub Pages conserve une copie de secours synchronisée. Le build vérifié s’exécute avant chaque déploiement. Un changement qui échoue à TypeScript, au lint, aux tests ou au build ne remplace pas la production.
 
-Créer des branches de travail et valider les changements avant fusion dans `main`. Le contrôle GitHub `Validate portfolio / validate` peut être rendu obligatoire dans une règle de branche, selon les options disponibles du compte. Cette règle n'est pas activée par un simple fichier de workflow.
+Pour contribuer, créer une branche de travail et valider les changements avant fusion dans `main`. Le contrôle GitHub `Validate portfolio / validate` peut être rendu obligatoire dans une règle de branche, selon les options disponibles du compte. Cette règle n'est pas activée par un simple fichier de workflow.
 
 Voir [le guide de déploiement](docs/DEPLOYMENT.md). L'origine publique est lue dans `PUBLIC_SITE_URL` ou les variables système Vercel. Aucun ancien domaine d'aperçu n'est codé en dur. Sans domaine connu, le build n'invente pas de canonical et désactive l'indexation dans `robots.txt`.
 
@@ -85,4 +85,4 @@ Sources, licences, maintenance et limites des tests : [SOURCES](docs/SOURCES.md)
 
 ## Refonte
 
-Voir `docs/REFONTE_V4.md` pour la version actuelle : dix projets illustrés, huit mini-jeux réunis dans Jeux, trois thèmes discrets et un contact qui prépare un véritable email. Univers, le laboratoire et leurs anciens GIF sont supprimés.
+Voir `docs/REFONTE_V4.md` pour la version actuelle : neuf projets illustrés, huit mini-jeux réunis dans Jeux, trois thèmes discrets et un contact qui prépare un véritable email. Univers, le laboratoire et leurs anciens GIF sont supprimés.

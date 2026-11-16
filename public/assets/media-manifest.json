@@ -67,22 +67,6 @@
       "usage": "Thematic editorial illustration, not a screenshot or proof of the project."
     },
     {
-      "id": "word2vec",
-      "kind": "photo",
-      "publicPath": "assets/editorial/word2vec.webp",
-      "sourcePage": "https://unsplash.com/photos/a-long-row-of-books-in-a-library-hs9KUzMKNNg",
-      "downloadURL": "https://images.unsplash.com/photo-1683178862099-325f9b29e081?auto=format&fit=crop&fm=jpg&q=80&w=1200",
-      "author": "Zetong Li",
-      "license": "Unsplash License",
-      "licenseURL": "https://unsplash.com/license",
-      "width": 1200,
-      "height": 798,
-      "bytes": 172506,
-      "altFr": "Rayonnage de livres dans une bibliothèque.",
-      "status": "downloaded",
-      "usage": "Thematic editorial illustration, not a screenshot or proof of the project."
-    },
-    {
       "id": "trends",
       "kind": "photo",
       "publicPath": "assets/editorial/trends.webp",
