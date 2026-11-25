@@ -9,7 +9,6 @@ import { AppContext } from './utils/context';
 import { parseRoute } from './utils/route';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Intro from './components/Intro';
 import Home from './pages/Home';
 import ProjectIndex from './components/ProjectIndex';
 import Contact from './pages/Contact';
@@ -86,7 +85,7 @@ export default function App() {
     const titles: Record<string, string> = { home: c.positioning, work: c.work, about: c.about, games:lang==='fr'?'Jeux':'Games', contact: c.contact, recruiter: c.recruiter };
     const detailTitle=route.page==='games'&&isGameKind(route.id)?gameCatalog[route.id].title[lang]:route.page==='work'&&route.id?(projects.find(p=>p.id===route.id)?.title||c.notFound):'';
     document.title = `${identity.name} | ${detailTitle?detailTitle+' / ':''}${titles[route.page] || c.home}`;
-    document.querySelector('meta[name="description"]')?.setAttribute('content', lang === 'fr' ? 'Portfolio de Can Pekgoz, étudiant M2 BIDABI. Data, BI, SQL, Python et stratégie. Stage de six mois dès mars 2027 en Île-de-France.' : 'Portfolio of Can Pekgoz, BIDABI master’s student. Data, BI, SQL, Python and strategy. Seeking a six-month internship from March 2027 in Île-de-France.');
+    document.querySelector('meta[name="description"]')?.setAttribute('content', lang === 'fr' ? 'Portfolio de Can Pekgoz, étudiant M2 BIDABI. Économie, analyse de données, BI et transformation digitale et IA. Stage de six mois dès mars 2027 en Île-de-France.' : 'Portfolio of Can Pekgoz, BIDABI master’s student. Economics, data analytics, BI, digital and AI transformation. Seeking a six-month internship from March 2027 in Île-de-France.');
     window.scrollTo({ top: 0, behavior: 'instant' });
     if (!firstRender.current) document.getElementById('main')?.focus({ preventScroll: true });
     firstRender.current = false;
@@ -110,5 +109,5 @@ export default function App() {
     case 'recruiter': {const Page=ready.recruiter||Recruiter;content=<Page/>;break;}
     default: content = <><PageTitle pre="404" one={c.notFound} two="" description={c.notFoundDesc} /><div className="wrap"><Link className="button button-sage">{c.home}</Link></div></>;
   }
-  return <AppContext.Provider value={{ lang, c, route, reduced, setReduced }}><div className="reading-progress" aria-hidden="true" /><Header /><div className="route-curtain" aria-hidden="true" ref={curtain}><span>Can Pekgoz</span></div><main id="main" tabIndex={-1}><ErrorBoundary key={route.page + '/' + (route.id || '') + lang} title={c.errorTitleApp} retry={c.retry}><Suspense fallback={<div className="loading-state wrap" role="status">{c.loading}</div>}><MotionScene key={route.page + '/' + (route.id || '') + lang}>{content}</MotionScene></Suspense></ErrorBoundary></main><Footer /><BackToTop /><Studio/>{route.page === 'home' && <Intro />}</AppContext.Provider>;
+  return <AppContext.Provider value={{ lang, c, route, reduced, setReduced }}><div className="reading-progress" aria-hidden="true" /><Header /><div className="route-curtain" aria-hidden="true" ref={curtain}><span>Can Pekgoz</span></div><main id="main" tabIndex={-1}><ErrorBoundary key={route.page + '/' + (route.id || '') + lang} title={c.errorTitleApp} retry={c.retry}><Suspense fallback={<div className="loading-state wrap" role="status">{c.loading}</div>}><MotionScene key={route.page + '/' + (route.id || '') + lang}>{content}</MotionScene></Suspense></ErrorBoundary></main><Footer /><BackToTop /><Studio/></AppContext.Provider>;
 }

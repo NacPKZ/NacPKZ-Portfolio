@@ -1,14 +1,95 @@
-import GameSpot from '../components/GameSpot';
+import IdentityStage from '../components/IdentityStage';
+import { Arrow, Link } from '../components/UI';
+import { identity } from '../data/identity';
 import { useApp } from '../utils/context';
 import { asset } from '../utils/route';
-import { Arrow, Eyebrow, Link } from '../components/UI';
-import VisitPlanner from '../components/VisitPlanner';
-import IdentityStage from '../components/IdentityStage';
-import ProjectCollection from '../components/ProjectCollection';
-import Contact from './Contact';
-import PersonalInterlude from '../components/PersonalInterlude';
-import { requestStudio } from '../utils/studio';
-export default function Home(){
- const {c,lang,reduced}=useApp();
- return <><section className="new-hero wrap"><div className="hero-topline"><Eyebrow>{lang==='fr'?'PORTFOLIO PERSONNEL / 2026':'PERSONAL PORTFOLIO / 2026'}</Eyebrow><span className="micro hero-film-label">{lang==='fr'?'CURIOSITÉ EN MOUVEMENT':'CURIOSITY IN MOTION'}</span></div><IdentityStage/><div className="hero-summary"><p>{c.heroDesc}</p><div className="hero-buttons"><Link to="work" className="button button-sage">{c.heroAction}<Arrow diagonal/></Link><a className="button button-outline" href={asset('assets/Can_Pekgoz_CV.pdf?v=20261116')} target="_blank" rel="noreferrer">{c.cv}</a></div><div className="hero-availability"><span className="availability"><span className="status-light"/>{c.availability}</span><span>{c.heroUniversity}</span></div></div><div className="hero-footline"><span>{c.positioning}</span><a href="#featured" onClick={e=>{e.preventDefault();document.getElementById('featured')?.scrollIntoView({behavior:reduced?'instant':'smooth'});}}>{lang==='fr'?'EXPLORER LA SUITE':'EXPLORE BELOW'}</a></div></section><div className="kinetic-strip" aria-hidden="true"><div>{Array.from({length:4},(_,i)=><span key={i}>CURIOSITÉ / DATA / IMAGINATION / STRATÉGIE / </span>)}</div></div><VisitPlanner/><GameSpot kind="sherlock"/><div className="all-games-link wrap"><Link to="games">{lang==='fr'?'Découvrir les huit jeux':'Discover all eight games'}</Link><span>{lang==='fr'?'Don Draper, Gus Fring, Logan Roy et les autres.':'Don Draper, Gus Fring, Logan Roy and the others.'}</span></div><div className="series-bridge wrap"><p>{lang==='fr'?'La donnée prend tout son sens quand elle éclaire une décision. Voici les projets qui me permettent de travailler cette idée.':'Data matters when it informs a decision. These projects help me explore that idea.'}</p></div><ProjectCollection/><section className="method-cards wrap"><div className="section-heading"><Eyebrow>{lang==='fr'?'COMMENT JE TRAVAILLE':'HOW I WORK'}</Eyebrow><Link to="about" className="text-link">{lang==='fr'?'Mon parcours':'My background'}<Arrow/></Link></div><div>{[{n:'01',title:lang==='fr'?'La question avant l’outil.':'The question before the tool.',text:lang==='fr'?'Comprendre le problème métier et ce que l’analyse doit vraiment éclairer.':'Understand the business problem and what the analysis needs to clarify.'},{n:'02',title:lang==='fr'?'Les preuves avant la conclusion.':'Evidence before conclusions.',text:lang==='fr'?'Contrôler les données, expliquer les hypothèses et rendre les calculs traçables.':'Validate data, explain assumptions and make calculations traceable.'},{n:'03',title:lang==='fr'?'Une méthode qui se partage.':'A method worth sharing.',text:lang==='fr'?'Restituer les résultats, écouter les questions et montrer aussi les limites.':'Present results, listen to questions and show the limitations too.'}].map(x=><article key={x.n}><span className="micro">{x.n}</span><h2>{x.title}</h2><p>{x.text}</p><span className="method-line" aria-hidden="true"/></article>)}</div></section><PersonalInterlude compact/><section className="studio-entry wrap"><div><Eyebrow>{lang==='fr'?'VOTRE ESPACE DE VISITE':'YOUR VISIT SPACE'}</Eyebrow><h2 className="section-title">{lang==='fr'?'Explorez à votre façon.':'Explore your own way.'}</h2><p>{lang==='fr'?'Tous les projets en images, un message prêt à m’envoyer et les chantiers à suivre. Les mini-jeux se découvrent au fil des pages.':'All projects in pictures, a message ready to send and work in progress. Discover the mini-games as you browse the pages.'}</p><button className="button button-sage" onClick={requestStudio}>{lang==='fr'?'Ouvrir le Studio':'Open the Studio'}<Arrow diagonal/></button></div><div className="studio-ticket" aria-hidden="true"><span>STUDIO</span><b>ADMIT ONE</b><small>CAN PEKGOZ / PORTFOLIO</small><i/></div></section><Contact compact/></>;
+
+const pillars = [
+  {
+    title: { fr: 'Data & Analytics', en: 'Data & Analytics' },
+    text: {
+      fr: 'Structurer les données, fiabiliser les indicateurs et éclairer les décisions avec SQL et Power BI.',
+      en: 'Structure data, build reliable metrics and inform decisions with SQL and Power BI.',
+    },
+  },
+  {
+    title: { fr: 'IA & Transformation', en: 'AI & Transformation' },
+    text: {
+      fr: 'Identifier les usages pertinents de l’IA, évaluer leurs risques et préparer leur adoption par les équipes.',
+      en: 'Identify where AI can help, assess its risks and plan for team adoption.',
+    },
+  },
+  {
+    title: { fr: 'Business & Strategy', en: 'Business & Strategy' },
+    text: {
+      fr: 'Relier les choix technologiques aux priorités métier, aux coûts et aux bénéfices attendus.',
+      en: 'Connect technology choices to business priorities, costs and expected benefits.',
+    },
+  },
+];
+
+export default function Home() {
+  const { c, lang } = useApp();
+
+  return (
+    <div className="portfolio-home wrap">
+      <section className="portfolio-hero" aria-labelledby="portfolio-name">
+        <div className="portfolio-intro">
+          <p className="portfolio-kicker">{c.heroPre}</p>
+          <h1 id="portfolio-name">{identity.name}</h1>
+          <p className="portfolio-headline">
+            <span>{c.heroOne}</span>
+            <em>{c.heroTwo}</em>
+          </p>
+          <p className="portfolio-description">{c.heroDesc}</p>
+          <p className="portfolio-availability">
+            <span className="portfolio-status" aria-hidden="true" />
+            {c.heroAvailability}
+          </p>
+          <div className="portfolio-actions">
+            <Link to="work" className="portfolio-button portfolio-primary">
+              {c.heroAction}<Arrow essential diagonal />
+            </Link>
+            <a className="portfolio-button portfolio-secondary" href={asset('assets/Can_Pekgoz_CV.pdf')} download="CV_Can_Pekgoz.pdf">
+              {c.cv}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <IdentityStage />
+      </section>
+
+      <section className="portfolio-pillars" aria-label={lang === 'fr' ? 'Mes domaines de travail' : 'My areas of work'}>
+        {pillars.map((pillar) => (
+          <article key={pillar.title.en}>
+            <h2>{pillar.title[lang]}</h2>
+            <p>{pillar.text[lang]}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="portfolio-feature" aria-labelledby="portfolio-feature-title">
+        <div>
+          <p className="portfolio-kicker">{c.featured}</p>
+          <h2 id="portfolio-feature-title">ConsultAI 360</h2>
+          <p>{c.featuredDesc}</p>
+          <Link to="work/consultai" className="portfolio-button portfolio-primary">
+            {c.caseStudy}<Arrow essential diagonal />
+          </Link>
+        </div>
+        <Link to="work/consultai" className="portfolio-feature-image" aria-label={`ConsultAI 360 — ${c.caseStudy}`}>
+          <img
+            src={asset('assets/projects/consult-01.webp')}
+            alt={lang === 'fr' ? 'Tableau de bord Power BI de NexaRetail' : 'NexaRetail Power BI dashboard'}
+            width={2000}
+            height={1130}
+            loading="lazy"
+            decoding="async"
+          />
+        </Link>
+      </section>
+    </div>
+  );
 }
