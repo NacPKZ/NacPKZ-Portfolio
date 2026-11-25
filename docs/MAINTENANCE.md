@@ -22,7 +22,7 @@ Les expériences sont centralisées dans `src/data/profile.ts`. Les rubriques de
 
 ## Remplacer le CV
 
-Remplacer `public/assets/Can_Pekgoz_CV.pdf` par la version validée. Mettre à jour la date du CV dans les traductions et dans le registre des sources. Vérifier le téléchargement et le contenu avant publication. Le document peut contenir des coordonnées personnelles : choisir explicitement la version destinée au public.
+Remplacer `public/assets/CV_Can_Pekgoz.pdf` par la version validée. Mettre à jour la date du CV dans les traductions et dans le registre des sources. Vérifier le téléchargement et le contenu avant publication. Le document peut contenir des coordonnées personnelles : choisir explicitement la version destinée au public.
 
 ## Modifier le design
 

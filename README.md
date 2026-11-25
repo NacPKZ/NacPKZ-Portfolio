@@ -1,16 +1,21 @@
-# Can Pekgoz | Données, analyse et stratégie
+# Can Pekgoz · Portfolio Data & Business Analytics
 
-Portfolio indépendant, bilingue FR/EN, développé avec React 19, TypeScript, Vite et GSAP. Projets documentés, études de cas, huit mini-jeux, trois ambiances visuelles et présentation personnelle.
+[Portfolio public](https://nacpkz-portfolio.vercel.app/) · [Dépôt](https://github.com/NacPKZ/NacPKZ-Portfolio)
 
-## État de publication
+Étudiant en Master 2 Économie des entreprises et des marchés, parcours BIDABI à l’Université Sorbonne Paris Nord. Je cherche un stage de fin d’études de six mois dès mars 2027 en Île-de-France.
 
-Dépôt public : https://github.com/NacPKZ/NacPKZ-Portfolio. Site public : https://nacpkz-portfolio.vercel.app/. Hébergement Vercel dans l’espace Nac (nac18), connecté au dépôt. Déploiement automatique après TypeScript, ESLint, les tests automatiques et le build. GitHub Pages conserve une copie de secours.
+## Études de cas
 
-Le projet est autonome : aucun compte ChatGPT, composant OpenAI, service d'IA ou serveur privé n'est nécessaire aux visiteurs. Le contenu et les mini-jeux s’exécutent dans le navigateur.
+| Projet | Sujet |
+|---|---|
+| ConsultAI 360 | Fiabilité des indicateurs et cadrage d’un pilote IA pour un distributeur fictif |
+| Olist | Entrepôt PostgreSQL, contrôles qualité et mesure des ventes et livraisons |
+| NovaTel | Attrition client et scénarios de fidélisation documentés dans Power BI |
+| RetailFlow | Simulation d’attente en magasin et comparaison des configurations de caisses |
+
+Le site est bilingue. Les préférences de langue et de thème sont mémorisées dans le navigateur. La page Contact prépare un message éditable qui s’ouvre dans la messagerie du visiteur. Le PDF servi par la navigation est `public/assets/CV_Can_Pekgoz.pdf`.
 
 ## Développement
-
-Node.js 22, npm et Git. Le lockfile fixe les versions résolues.
 
 ```bash
 npm ci
@@ -19,70 +24,4 @@ npm run validate
 npm run build
 ```
 
-`validate` exécute TypeScript, ESLint et Vitest. Les workflows GitHub et la configuration Vercel exécutent ces contrôles avant publication.
-
-## Expérience
-
-- Navigation fixe et menu mobile modal, recherche globale Ctrl K ou Cmd K.
-- Recherche de projets insensible aux accents, combinable avec les catégories.
-- Index et galerie visuelle, avec préférence conservée localement.
-- Transitions de pages natives avec repli GSAP ; chapitres contextuels des études de cas.
-- Galerie de captures authentiques, rubrique Jeux avec huit personnages de séries et mode recruteur avec CV.
-- Rubrique « Ce qui m’anime » : films, séries, animés, documentaires, lecture, curiosité, ateliers, culture kurde et solidarité.
-- Studio à trois volets : Tous les projets, En construction et M’écrire.
-- Objectifs à venir : Projet Excel en construction et préparation PL-300, sans prétendre à leur réalisation.
-- Animations dynamiques automatiques, préférence système de mouvement réduit respectée, retour en haut accessible au clavier.
-
-Les routes par fragment fonctionnent sur Vercel et GitHub Pages : `#/fr/`, `#/en/work`, `#/fr/work/consultai`, `#/fr/about`, `#/fr/games`, `#/fr/recruiter`, `#/fr/contact`. La langue conserve la page courante. Le CV et les captures authentiques restent en français.
-
-## Structure
-
-| Emplacement | Rôle |
-|---|---|
-| `src/data/projects.ts` | Neuf projets, résultats, sources, limites et captures |
-| `src/data/interests.ts` | Présentation personnelle FR/EN, déclarative |
-| `src/data/gameCatalog.ts` | Catalogue bilingue des huit jeux |
-| `src/utils/themes.ts` | Normal, Givre, Cuivré |
-| `src/data/profile.ts` | Expériences professionnelles |
-| `src/components/CommandPalette.tsx` | Navigation et recherche au clavier |
-| `src/components/PersonalInterlude.tsx` | Présentation personnelle interactive |
-| `src/components/ChapterNav.tsx` | Chapitres d'une étude de cas |
-| `src/components/ProjectIndex.tsx` | Recherche, catégories, index et galerie |
-| `src/components/MotionScene.tsx` | Animations progressives et nettoyage GSAP |
-| `src/utils/` | Routage, recherche, calculs et origine publique |
-| `src/styles/` | Mise en page, adaptation aux écrans, impression et préférences de mouvement |
-| `public/assets/` | Captures, CV, image de partage et polices locales licenciées |
-| `tests/` | Calculs, contenu, recherche et métadonnées de déploiement |
-| `vercel.json` | Build validé et sortie Vercel |
-| `.github/workflows/validate.yml` | Contrôles sur push et pull request |
-| `.github/workflows/pages.yml` | Alternative Pages déclenchée manuellement |
-| `docs/DEPLOYMENT.md` | Publication et contrôle de l'URL réelle |
-| `docs/IDEES.md` | 100 pistes, avec distinction entre livré et proposé |
-
-## Publication
-
-Vercel est l’hébergement principal, avec déploiement automatique depuis le dépôt dédié. GitHub Pages conserve une copie de secours synchronisée. Le build vérifié s’exécute avant chaque déploiement. Un changement qui échoue à TypeScript, au lint, aux tests ou au build ne remplace pas la production.
-
-Pour contribuer, créer une branche de travail et valider les changements avant fusion dans `main`. Le contrôle GitHub `Validate portfolio / validate` peut être rendu obligatoire dans une règle de branche, selon les options disponibles du compte. Cette règle n'est pas activée par un simple fichier de workflow.
-
-Voir [le guide de déploiement](docs/DEPLOYMENT.md). L'origine publique est lue dans `PUBLIC_SITE_URL` ou les variables système Vercel. Aucun ancien domaine d'aperçu n'est codé en dur. Sans domaine connu, le build n'invente pas de canonical et désactive l'indexation dans `robots.txt`.
-
-## Créer l'archive de source
-
-Après validation et commit local :
-
-```bash
-npm run release:archive
-```
-
-Le script utilise `git archive` et refuse les fichiers locaux sensibles ou les modifications non committées. Il exclut les dépendances, sorties de build et secrets. Le ZIP contient le source à installer, et non une revendication de publication.
-
-## Nature du contenu
-
-ConsultAI utilise NexaRetail synthétique et un volet ML DataCo indépendant. Les ROI sont des hypothèses, les résultats projet sont documentés sans réexécution complète. Aucun client fictif n'est présenté comme réel. Les textes personnels sont déclaratifs ; aucun rôle associatif précis ni préférence culturelle supplémentaire n'est inventé.
-
-Sources, licences, maintenance et limites des tests : [SOURCES](docs/SOURCES.md), [MAINTENANCE](docs/MAINTENANCE.md), [VALIDATION](docs/VALIDATION.md).
-
-## Refonte
-
-Voir `docs/REFONTE_V4.md` pour la version actuelle : neuf projets illustrés, huit mini-jeux réunis dans Jeux, trois thèmes discrets et un contact qui prépare un véritable email. Univers, le laboratoire et leurs anciens GIF sont supprimés.
+React et TypeScript avec Vite. `src/EditorialPortfolio.tsx` porte les routes publiques. `src/data/editorial.ts` sélectionne les projets et leurs couvertures. Les anciens composants et autres études restent consultables dans le code et l’historique du dépôt. [Déploiement Vercel et GitHub Pages](docs/DEPLOYMENT.md) · [Refonte et vérifications](docs/REFONTE_2026_11_25.md).

@@ -1,15 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
-import './styles/index.css';
-import './styles/refinements.css';
-import './styles/experience.css';
-import './styles/discovery.css';
-import './styles/studio.css';
-createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);
+import EditorialPortfolio from './EditorialPortfolio';
+import './styles/editorial.css';
 
-import './styles/reboot.css';
-import './styles/cinema.css';
-import './styles/play.css';
-import './styles/arcade.css';
-import './styles/portfolio.css';
+createRoot(document.getElementById('root')!).render(
+  <StrictMode><EditorialPortfolio /></StrictMode>,
+);
