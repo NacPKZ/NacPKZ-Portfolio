@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import EditorialPortfolio from './EditorialPortfolio';
-import './styles/editorial.css';
+import Portfolio from './Portfolio';
+import './styles/portfolio-site.css';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode><EditorialPortfolio /></StrictMode>,
+  <StrictMode><Portfolio /></StrictMode>,
 );
