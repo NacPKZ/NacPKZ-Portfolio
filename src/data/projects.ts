@@ -7,8 +7,8 @@ export const projects: Project[] = [
   {
     id: 'consultai', number: '01', title: 'ConsultAI 360', category: ['strategy', 'engineering', 'bi', 'ml'], accent: 'sage',
     eyebrow: l('Mission de conseil simulée / 2026', 'Simulated consulting engagement / 2026'),
-    tagline: l('De la qualité des données à la décision métier.', 'From data quality to business decisions.'),
-    summary: l('Une chaîne analytique complète pour NexaRetail, entreprise omnicanale fictive : génération, qualité, entrepôt, reporting, IA et recommandations.', 'An end-to-end analytical workflow for NexaRetail, a fictional omnichannel retailer: generation, quality, warehousing, reporting, AI and recommendations.'),
+    tagline: l('Des données fiables pour cadrer un pilote IA métier.', 'Reliable data as the foundation for a business AI pilot.'),
+    summary: l('Une mission de transformation Data & IA simulée pour NexaRetail. Je relie la qualité des données et le pilotage Power BI à des usages IA concrets : expliquer les écarts d’indicateurs et tester des alertes logistiques.', 'A simulated data and AI transformation engagement for NexaRetail. I connect data quality and Power BI reporting to practical AI use cases: explaining changes in metrics and testing logistics alerts.'),
     nature: l('NexaRetail : données synthétiques. ML : dataset public DataCo, indépendant. ROI : hypothèses simulées.', 'NexaRetail: synthetic data. ML: the independent public DataCo dataset. ROI: simulated assumptions.'),
     tech: ['Python', 'PostgreSQL', 'dbt', 'Power BI', 'DAX', 'scikit-learn', 'Streamlit', 'FastAPI', 'Ollama', 'Docker'],
     metrics: [{ value: '4', label: l('scénarios de qualité', 'data quality scenarios') }, { value: '4,1 M', label: l('lignes RAW cumulées', 'cumulative RAW rows'), note: l('Quatre versions du système synthétique.', 'Four versions of the synthetic system.') }, { value: '7', label: l('pages Power BI', 'Power BI pages') }],

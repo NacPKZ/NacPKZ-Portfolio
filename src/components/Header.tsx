@@ -20,9 +20,9 @@ export default function Header() {
   const menuClosing = useRef(false);
   const items = [
     { path: '', label: c.home }, { path: 'work', label: c.work },
-    { path: 'about', label: c.about }, { path: 'games', label: lang==='fr'?'Jeux':'Games' }, { path: 'contact', label: c.contact },
+    { path: 'about', label: c.about }, { path: 'contact', label: c.contact },
   ];
-  const active = Math.max(0, items.findIndex(item => item.path === (route.page === 'home' ? '' : route.page)));
+  const active = items.findIndex(item => item.path === (route.page === 'home' ? '' : route.page));
   const path = route.page === 'home' ? '' : route.page + (route.id ? '/' + route.id : '');
 
   useEffect(() => {
@@ -94,8 +94,8 @@ export default function Header() {
     <div className="nav-container">
       <Link className="brand-name"><span>{identity.name}</span></Link>
       <nav className="nav-dock" ref={nav} aria-label={lang === 'fr' ? 'Navigation principale' : 'Main navigation'} onPointerLeave={() => setHover(null)} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setHover(null); }}>
-        <span ref={pill} className="nav-active-pill" aria-hidden="true" />
-        {items.map((item, i) => <Link key={item.path} to={item.path} aria-current={i === active && route.page !== 'recruiter' ? 'page' : undefined} className={i === active ? 'is-active' : ''} onPointerEnter={() => setHover(i)} onFocus={() => setHover(i)}><span>{item.label}</span></Link>)}
+        <span ref={pill} className="nav-active-pill" data-highlighted={hover !== null || active >= 0} aria-hidden="true" />
+        {items.map((item, i) => <Link key={item.path} to={item.path} aria-current={i === active ? 'page' : undefined} className={i === active ? 'is-active' : ''} onPointerEnter={() => setHover(i)} onFocus={() => setHover(i)}><span>{item.label}</span></Link>)}
       </nav>
       <div className="nav-utilities"><CommandPalette />
         <a className="language-button" aria-label={`${lang.toUpperCase()} / ${lang === 'fr' ? 'EN' : 'FR'}, ${c.language}`} href={routeHref(lang === 'fr' ? 'en' : 'fr', path)}>{lang.toUpperCase()}<span> / </span>{lang === 'fr' ? 'EN' : 'FR'}</a>
@@ -107,7 +107,7 @@ export default function Header() {
       <div className="menu-surface" ref={menuSurface}>
         <div className="menu-top"><span>{identity.name}</span><button onClick={() => void closeMenu()}>{c.close}<i className="close-lines" aria-hidden="true" /></button></div>
         <nav className="overlay-links" aria-label={lang === 'fr' ? 'Choisir une page' : 'Choose a page'}>
-          {items.map((item, i) => <a key={item.path} href={routeHref(lang, item.path)} onClick={e => menuNavigate(e, item.path)} aria-current={i === active ? 'page' : undefined}><span className="menu-link-number">0{i + 1}</span><span className="menu-link-mask"><span className="menu-link-label">{item.label}</span></span><span className="menu-link-rule" aria-hidden="true" /></a>)}
+          {items.map((item, i) => <a key={item.path} href={routeHref(lang, item.path)} onClick={e => menuNavigate(e, item.path)} aria-current={i === active ? 'page' : undefined}><span className="menu-link-number" aria-hidden="true">0{i + 1}</span><span className="menu-link-mask"><span className="menu-link-label">{item.label}</span></span><span className="menu-link-rule" aria-hidden="true" /></a>)}
         </nav>
         <div className="menu-bottom"><a href={routeHref(lang, 'recruiter')} onClick={e => menuNavigate(e, 'recruiter')}>{c.recruiter}</a><span>{c.availability}</span><a href="mailto:canpekgoz.pro@gmail.com">canpekgoz.pro@gmail.com</a></div>
       </div>
