@@ -38,7 +38,7 @@ Si la compilation échoue, la dernière production réussie reste disponible. Le
 
 ## Remplacer ton CV
 
-Garde exactement ce chemin et ce nom : `public/assets/Can_Pekgoz_CV.pdf`.
+Garde exactement ce chemin et ce nom : `public/assets/CV_Can_Pekgoz.pdf`.
 
 Dans GitHub : ouvre `public`, puis `assets`, utilise **Add file**, **Upload files**, dépose le nouveau PDF portant le même nom, puis valide le commit. Attends le succès du déploiement Vercel et teste le lien du CV sur le site.
 

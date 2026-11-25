@@ -2,7 +2,7 @@ import { newProjects } from './newProjects';
 import { l } from './types';
 import type { Project } from './types';
 const github = 'https://github.com/NacPKZ/';
-const consult = github + 'ConsultAI-360/blob/d4083fce2c15649e38409d17f981ca86bdfb4134/';
+const consult = github + 'ConsultAI-360/blob/main/';
 export const projects: Project[] = [
   {
     id: 'consultai', number: '01', title: 'ConsultAI 360', category: ['strategy', 'engineering', 'bi', 'ml'], accent: 'sage',

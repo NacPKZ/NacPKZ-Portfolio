@@ -7,15 +7,15 @@ Ce guide concerne le dépôt dédié `NacPKZ-Portfolio`. Les changements sont co
 La méthode simple consiste à conserver le même nom de fichier.
 
 1. Exporte ton nouveau CV en PDF.
-2. Sur ton ordinateur, renomme-le exactement `Can_Pekgoz_CV.pdf`.
+2. Sur ton ordinateur, renomme-le exactement `CV_Can_Pekgoz.pdf`.
 3. Dans GitHub, ouvre le dépôt du portfolio, puis `public`, `assets`.
 4. Clique sur **Add file**, puis **Upload files**.
-5. Dépose le nouveau PDF. Il doit remplacer `Can_Pekgoz_CV.pdf` dans ce dossier.
+5. Dépose le nouveau PDF. Il doit remplacer `CV_Can_Pekgoz.pdf` dans ce dossier.
 6. Dans le message du commit, écris par exemple `Mettre à jour mon CV`.
 7. Valide avec **Commit changes** sur `main`, ou crée une branche et une pull request si une règle de validation est en place.
 8. Attends le résultat des contrôles et du déploiement Vercel, puis ouvre le site et clique sur le téléchargement du CV.
 
-Le lien reste valide parce que le chemin ne change pas : `public/assets/Can_Pekgoz_CV.pdf`. Ne dépose pas le PDF à la racine du dépôt. Un fichier appelé `CV_final_v2.pdf` ne remplace pas automatiquement celui utilisé par le site.
+Le lien reste valide parce que le chemin ne change pas : `public/assets/CV_Can_Pekgoz.pdf`. Ne dépose pas le PDF à la racine du dépôt. Un fichier appelé `CV_final_v2.pdf` ne remplace pas automatiquement celui utilisé par le site.
 
 Le nom peut rester identique même si la date, le design ou le contenu du CV changent. Vérifie les coordonnées que tu souhaites rendre publiques avant de valider le remplacement.
 
@@ -25,7 +25,7 @@ Le portfolio possède aussi une synthèse recruteur distincte du PDF. Si ton par
 
 | Ce que je veux changer | Fichier à ouvrir | À savoir |
 |---|---|---|
-| Mon CV téléchargeable | `public/assets/Can_Pekgoz_CV.pdf` | Remplacer le PDF en gardant ce nom |
+| Mon CV téléchargeable | `public/assets/CV_Can_Pekgoz.pdf` | Remplacer le PDF en gardant ce nom |
 | Ma présentation, disponibilité, formation et textes de navigation | `src/i18n/copy.ts` | Deux parties, `fr` et `en` ; modifier les deux |
 | Mes expériences professionnelles | `src/data/profile.ts` | Dates, lieux, entreprises, rôles et descriptions |
 | Mes loisirs, ateliers et engagement culturel | `src/data/interests.ts` | Quatre volets avec textes français et anglais |
@@ -97,7 +97,7 @@ Les trois ambiances Normal, Givre et Cuivré se modifient dans `src/utils/themes
 
 Les projets documentés sont dans `src/data/projects.ts`. Le projet Excel en construction est dans `src/data/newProjects.ts`. Les photographies sont dans `public/assets/editorial/`, avec leurs crédits dans `public/assets/media-manifest.json`.
 
-Le CV reste `public/assets/Can_Pekgoz_CV.pdf`. Le remplacer en conservant exactement son nom, puis valider un commit dans GitHub.
+Le CV reste `public/assets/CV_Can_Pekgoz.pdf`. Le remplacer en conservant exactement son nom, puis valider un commit dans GitHub.
 
 ## Adresse en ligne
 
