@@ -25,7 +25,7 @@ Le workflow `.github/workflows/pages.yml` se déclenche sur `main`, valide les s
 
 ## Métadonnées et ressources
 
-Sur Vercel, garder `PAGES_BASE` vide. Le build lit `VERCEL_PROJECT_PRODUCTION_URL` pour le domaine stable et utilise `PUBLIC_SITE_URL` si cette variable est fournie. Le build génère canonical, image de partage, JSON-LD, robots et sitemap. Les routes utilisent des fragments. Les captures, GIF, CV et polices suivent le chemin Vite.
+Sur Vercel, garder `PAGES_BASE` vide. Le build lit `VERCEL_PROJECT_PRODUCTION_URL` pour le domaine stable et utilise `PUBLIC_SITE_URL` si cette variable est fournie. Le build génère canonical, image de partage, JSON-LD, robots et sitemap. Les routes utilisent des fragments. Les captures, illustrations vectorielles, CV et polices suivent le chemin Vite.
 
 Le build Pages a également été vérifié : les polices suivent `/NacPKZ-Portfolio/`, sans requête vers `/assets/` à la racine.
 

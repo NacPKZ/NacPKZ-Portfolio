@@ -82,7 +82,7 @@ function Contact({lang,draft,onDraft}: {lang: Lang; draft: Draft|null; onDraft: 
 
 export default function Portfolio() {
   const [route,setRoute] = useState(() => parseRoute(location.hash || (readPreference('portfolio-language') === 'en' ? '#/en/' : '')));
-  const [dark,setDark] = useState(() => readPreference('portfolio-cinema-theme') !== 'light');
+  const [dark,setDark] = useState(() => readPreference('portfolio-appearance-v3') === 'dark');
   const [draft,setDraft] = useState<Draft|null>(null);
   const navigated = useRef(false);
   const {lang,page,id} = route;
@@ -102,11 +102,11 @@ export default function Portfolio() {
     document.querySelector('meta[name="description"]')?.setAttribute('content',t(lang,'Portfolio de Can Pekgoz. Économie, data, Business Intelligence et transformation IA. Stage de six mois en Île-de-France à partir de mars 2027.','Portfolio of Can Pekgoz. Economics, data, Business Intelligence and AI transformation. Seeking a six-month internship in Île-de-France from March 2027.'));
     window.scrollTo(0,0);
     if(navigated.current)document.getElementById('main')?.focus({preventScroll:true});
-  },[lang,path,title]);
+  },[lang,path,title,route]);
   useEffect(() => {
     document.documentElement.dataset.appearance=dark?'dark':'light';
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#141315':'#f0e9de');
-    savePreference('portfolio-cinema-theme',dark?'dark':'light');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#141315':'#ffffff');
+    savePreference('portfolio-appearance-v3',dark?'dark':'light');
   },[dark]);
 
   let content;

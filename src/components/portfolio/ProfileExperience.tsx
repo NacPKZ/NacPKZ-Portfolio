@@ -3,7 +3,7 @@ import { interests } from '../../data/interests';
 import { skillGroups } from '../../data/portfolio';
 import { copy } from '../../i18n/copy';
 import type { Lang } from '../../data/types';
-import { asset } from '../../utils/route';
+import InterestMotion from './InterestMotion';
 
 const translations: Record<string,string> = {
   Statistiques:'Statistics', Économétrie:'Econometrics', Modélisation:'Data modelling',
@@ -31,7 +31,7 @@ export default function ProfileExperience({lang}: {lang: Lang}) {
         <article><p className="period">{fr ? 'De 2021 à 2025' : '2021 to 2025'}</p><h3>{fr ? 'Licence Économie et gestion' : 'Bachelor’s in Economics and Management'}</h3><p>Université Sorbonne Paris Nord</p></article>
       </section>
       <section className="experience-panel" data-reveal><h2>{fr ? 'Expériences' : 'Experience'}</h2>
-        {experiences.map(exp => <article key={exp.company}><p className="period">{exp.date[lang]}</p><h3>{exp.role[lang]}</h3><p className="company">{exp.company}</p><p>{exp.desc[lang]}</p></article>)}
+        {experiences.map(exp => <article key={exp.company} data-reveal><p className="period">{exp.date[lang]}</p><h3>{exp.role[lang]}</h3><p className="company">{exp.company}</p><p>{exp.desc[lang]}</p></article>)}
       </section>
     </div>
     <section className="skills-section">
@@ -40,7 +40,7 @@ export default function ProfileExperience({lang}: {lang: Lang}) {
     </section>
     <section className="interests-section">
       <div className="section-heading"><h2>{fr ? 'Ce qui nourrit ma curiosité' : 'What keeps me curious'}</h2></div>
-      <div className="interest-grid">{interestItems.map(item => <article key={item.icon} data-reveal><div className="interest-visual" aria-hidden="true">{item.icon === 'screen' ? <picture className="interest-motion"><source media="(prefers-reduced-motion: reduce)" srcSet={asset('assets/motion/clap-still.svg')}/><img src={asset('assets/motion/clap.gif')} alt="" width="84" height="70" loading="lazy"/></picture> : <span className={`interest-mark mark-${item.icon}`}/>}</div><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+      <div className="interest-grid">{interestItems.map(item => <article key={item.icon} data-reveal><div className="interest-visual"><InterestMotion kind={item.icon}/></div><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
     </section>
   </div>;
 }
