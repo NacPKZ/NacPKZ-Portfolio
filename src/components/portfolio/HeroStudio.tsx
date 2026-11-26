@@ -27,11 +27,13 @@ export default function HeroStudio({lang}: {lang: Lang}) {
     onFocusCapture={() => setFocused(true)} onBlurCapture={event => {if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);}}>
     <div className="cinema-topline"><span>{fr ? 'Une idée prend forme' : 'An idea takes shape'}</span><span aria-hidden="true">{String(active + 1).padStart(2,'0')} / 03</span></div>
     <div className="studio-art cinema-screen" aria-hidden="true">
-      <div className="cinema-beam"/>
-      <div className="cinema-framing"><i/><i/><i/><i/></div>
-      <div className="film-scene" key={active} data-chapter={active} data-active="true">
-        <div className="scene-heading"><span className="scene-kicker">{current.kicker[lang]}</span><strong className="scene-title">{current.title[lang]}</strong></div>
-        <HeroArtwork chapter={active} lang={lang}/>
+      <div className="cinema-stage">
+        <div className="cinema-beam"/>
+        <div className="cinema-framing"><i/><i/><i/><i/></div>
+        <div className="film-scene" key={active} data-chapter={active} data-active="true">
+          <div className="scene-heading"><span className="scene-kicker">{current.kicker[lang]}</span><strong className="scene-title">{current.title[lang]}</strong></div>
+          <HeroArtwork chapter={active} lang={lang}/>
+        </div>
       </div>
       <div className="cinema-screen-edge"><span>{fr ? 'Du contexte à la décision' : 'From context to decision'}</span><span>CP</span></div>
     </div>
