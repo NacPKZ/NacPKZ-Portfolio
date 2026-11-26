@@ -3,6 +3,7 @@ import { interests } from '../../data/interests';
 import { skillGroups } from '../../data/portfolio';
 import { copy } from '../../i18n/copy';
 import type { Lang } from '../../data/types';
+import { asset } from '../../utils/route';
 
 const translations: Record<string,string> = {
   Statistiques:'Statistics', Économétrie:'Econometrics', Modélisation:'Data modelling',
@@ -14,7 +15,7 @@ const translations: Record<string,string> = {
 export default function ProfileExperience({lang}: {lang: Lang}) {
   const fr = lang === 'fr';
   const interestItems = [
-    {title: fr ? 'Cinéma et récits' : 'Film and stories', text: fr ? 'Films, séries, documentaires et animés. J’aime découvrir des univers et des points de vue différents.' : 'Films, series, documentaries and anime. I enjoy discovering different worlds and perspectives.', icon:'screen'},
+    {title: fr ? 'Cinéma et récits' : 'Film and stories', text: fr ? 'Films, séries et documentaires. J’aime découvrir des univers et des points de vue différents.' : 'Films, series and documentaries. I enjoy discovering different worlds and perspectives.', icon:'screen'},
     {title: fr ? 'Curiosité et entrepreneuriat' : 'Curiosity and entrepreneurship', text: interests[1].text[lang], icon:'spark'},
     {title: fr ? 'Culture et transmission' : 'Culture and sharing', text: fr ? 'La langue et la culture kurdes, les échanges et les ateliers linguistiques occupent une place importante dans mes engagements.' : 'Kurdish language and culture, conversations and language workshops play an important part in my community involvement.', icon:'culture'},
     {title: fr ? 'Solidarité et engagement' : 'Volunteering and community', text: fr ? 'J’ai participé à des collectes solidaires et à des actions associatives. J’ai aussi aidé des entreprises dans leurs démarches administratives.' : 'I have taken part in fundraising collections and community activities, and helped businesses with administrative tasks.', icon:'people'},
@@ -39,7 +40,7 @@ export default function ProfileExperience({lang}: {lang: Lang}) {
     </section>
     <section className="interests-section">
       <div className="section-heading"><h2>{fr ? 'Ce qui nourrit ma curiosité' : 'What keeps me curious'}</h2></div>
-      <div className="interest-grid">{interestItems.map(item => <article key={item.icon} data-reveal><span className={`interest-mark mark-${item.icon}`} aria-hidden="true"/><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+      <div className="interest-grid">{interestItems.map(item => <article key={item.icon} data-reveal><div className="interest-visual" aria-hidden="true">{item.icon === 'screen' ? <picture className="interest-motion"><source media="(prefers-reduced-motion: reduce)" srcSet={asset('assets/motion/clap-still.svg')}/><img src={asset('assets/motion/clap.gif')} alt="" width="84" height="70" loading="lazy"/></picture> : <span className={`interest-mark mark-${item.icon}`}/>}</div><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
     </section>
   </div>;
 }
