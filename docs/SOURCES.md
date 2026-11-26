@@ -43,7 +43,7 @@ Références techniques de la refonte : [GSAP ScrollTrigger](https://gsap.com/do
 
 ## Texte personnel
 
-Les centres d’intérêt et le bénévolat sont des déclarations de Can, repris de ses indications et de son CV : films, séries, animés, documentaires, lecture, curiosité, entrepreneuriat, animation d’ateliers, langue et culture kurdes, collectes et maraudes. Aucun organisme précis, titre culturel préféré, responsabilité associative ni résultat d’atelier supplémentaire n’est ajouté. Les formes et compositions de cette rubrique sont réalisées en CSS et ne représentent pas des photos d’événements.
+Les centres d’intérêt et le bénévolat sont des déclarations de Can, repris de ses indications et de son CV : films, séries, documentaires, lecture, curiosité, entrepreneuriat, animation d’ateliers, langue et culture kurdes, collectes et maraudes. Aucun organisme précis, titre culturel préféré, responsabilité associative ni résultat d’atelier supplémentaire n’est ajouté. Les compositions sont réalisées en CSS et SVG. Le GIF de clap est une illustration originale ; ces éléments ne représentent pas des photos d’événements.
 
 ## Studio et références de conception
 

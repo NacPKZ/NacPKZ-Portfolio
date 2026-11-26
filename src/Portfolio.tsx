@@ -12,6 +12,7 @@ import ProfileExperience from './components/portfolio/ProfileExperience';
 import MailComposer from './components/portfolio/MailComposer';
 import type { Draft } from './components/portfolio/MailComposer';
 import { AnimatedPage, ReadingProgress } from './components/portfolio/Motion';
+import ContextFooter from './components/portfolio/ContextFooter';
 
 const linkedIn = 'https://www.linkedin.com/in/can-pekgoz/';
 const github = 'https://github.com/NacPKZ';
@@ -81,7 +82,7 @@ function Contact({lang,draft,onDraft}: {lang: Lang; draft: Draft|null; onDraft: 
 
 export default function Portfolio() {
   const [route,setRoute] = useState(() => parseRoute(location.hash || (readPreference('portfolio-language') === 'en' ? '#/en/' : '')));
-  const [dark,setDark] = useState(() => readPreference('portfolio-theme') === 'dark');
+  const [dark,setDark] = useState(() => readPreference('portfolio-cinema-theme') !== 'light');
   const [draft,setDraft] = useState<Draft|null>(null);
   const navigated = useRef(false);
   const {lang,page,id} = route;
@@ -104,8 +105,8 @@ export default function Portfolio() {
   },[lang,path,title]);
   useEffect(() => {
     document.documentElement.dataset.appearance=dark?'dark':'light';
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#251e2d':'#f0e8f3');
-    savePreference('portfolio-theme',dark?'dark':'light');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#141315':'#f0e9de');
+    savePreference('portfolio-cinema-theme',dark?'dark':'light');
   },[dark]);
 
   let content;
@@ -119,13 +120,13 @@ export default function Portfolio() {
     <div className="site-atmosphere" aria-hidden="true"><span/><span/></div>
     <a className="skip" href="#main" onClick={event=>{event.preventDefault();document.getElementById('main')?.focus();}}>{copy[lang].skip}</a>
     <header className="site-header"><div className="wrap header-inner">
-      <a className="wordmark" href={routeHref(lang)}>Can Pekgoz<span className="wordmark-symbol" aria-hidden="true"/></a>
+      <a className="wordmark" href={routeHref(lang)}><span className="brand-frame" aria-hidden="true">CP</span>Can Pekgoz</a>
       <nav aria-label={t(lang,'Navigation principale','Main navigation')}>{navigation.map(({to,label})=><a key={to} href={routeHref(lang,to)} aria-current={(to||'home')===page?'page':undefined}>{label}</a>)}</nav>
       <div className="controls"><a className="language-toggle" href={routeHref(lang==='fr'?'en':'fr',path)} lang={lang} aria-label={t(lang,'Français, passer en anglais','English, switch to French')}>{lang.toUpperCase()}</a>
-        <button className="theme-toggle" onClick={()=>setDark(value=>!value)} aria-pressed={dark} aria-label={t(lang,'Thème sombre','Dark theme')}><span className="theme-symbol" aria-hidden="true"/></button>
+        <button className="theme-toggle" onClick={()=>setDark(value=>!value)} aria-pressed={dark} aria-label={t(lang,'Thème sombre','Dark theme')}><span className="theme-label" aria-hidden="true">{t(lang,'Thème','Theme')}</span></button>
       </div>
     </div></header>
     <main id="main" tabIndex={-1}><AnimatedPage key={lang+path}>{content}</AnimatedPage></main>
-    <footer className="wrap site-footer"><div><p>{t(lang,'Une nouvelle question','A new question')}<em>{t(lang,'à explorer ensemble.','to explore together.')}</em></p><a className="text-link" href={routeHref(lang,'contact')}>{t(lang,'Échangeons','Let’s talk')}</a></div><div className="footer-bottom"><p>{t(lang,'Stage de six mois en Île-de-France dès mars 2027.','Six-month internship in Île-de-France from March 2027.')}</p><nav aria-label={t(lang,'Liens utiles','Useful links')}><a href={routeHref(lang,'contact')}>{copy[lang].contact}</a><a href={linkedIn}>LinkedIn</a><a href={github}>GitHub</a></nav></div></footer>
+    <ContextFooter lang={lang} page={page} id={id} links={{linkedin:linkedIn,github}}/>
   </>;
 }
